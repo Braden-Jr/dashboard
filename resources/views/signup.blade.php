@@ -21,8 +21,9 @@
               </div>
               
                 <form method="post" action="/signupabsi">
+                  @csrf
                 <div class="form-group first">
-                    <input type="text" name='fname'id="form3Example1" class="form-control" />
+                    <input type="text" name='name'id="form3Example1" class="form-control" />
                     <label class="form-label" for="form3Example1">Full Name</label>
                 </div>
                 <div class="form-group first">

@@ -239,8 +239,6 @@ class campaigncontroller extends Controller
         }
     }
 
-}
-
     //Delete Campaign //
 
     function deletecampaign(Request $request){
@@ -268,12 +266,12 @@ class campaigncontroller extends Controller
             return back()->with('status','Invalid empty fields.');
         }
         else{
-            $user = User::create($request->name,$request->email,$request->password);
+            $user = user::create($request->name,$request->email,$request->password);
             return back()->with('status','Account Created.');
         }
     }   
 
-
+}
 
 
 
