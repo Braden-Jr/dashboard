@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Models;
+
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\user as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+
+class user extends Authenticatable
+{
+    use HasApiTokens, HasFactory, Notifiable;
+
+    public static function create($name,$email,$password){
+        $user = new user();
+    
+        $user->name=$name;
+        $user->email=$email;    
+        $user->password=Hash::make($password);
+        $user->save();
+    
+        return $user;
+    }
+}
