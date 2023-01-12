@@ -20,7 +20,7 @@
               <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
               </div>
               
-                <form method="post" action="/signupabsi">
+                <form method="post" action="/signup">
                   @csrf
                 <div class="form-group first">
                     <input type="text" name='name'id="form3Example1" class="form-control" />

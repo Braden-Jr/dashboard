@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Campaign;
 use App\Models\allProjects;
 use App\Models\User;
-
+use Hash, Auth;
 use Illuminate\Http\Request;
 
 class campaigncontroller extends Controller
@@ -262,7 +262,7 @@ class campaigncontroller extends Controller
     // Signup //
 
     function signup(Request $request){
-        if($request->name ==""||$request->email =="" || $request->password == ""){
+        if($request->name ==""||$request->email =="" ||$request->password == ""){
             return back()->with('status','Invalid empty fields.');
         }
         else{
@@ -271,6 +271,45 @@ class campaigncontroller extends Controller
         }
     }   
 
+    //login
+
+    function adminLogin(Request $request){ 
+ 
+        $credential=[
+          'email' => $request->email,
+          'password' => $request->password,
+        ];
+        
+        $users = user::where('email', $request->email)->get();
+            
+        foreach($users as $useq){
+          if ($useq->status == "Deleted"){
+            return back()->with('status',"Account has been deleted");
+          }
+    
+          elseif($useq->type =="client"){
+            return back()->with('status',"This email is not an admin account");
+          }
+          
+        }
+        $loginAttempt= Auth::attempt($credential);
+        if( $loginAttempt){
+          $request->session()->regenerate();
+          $user = user::firstWhere('email', $request->email);
+         session()->put('name', $user->name);
+         session()->put('email', $user->email);
+         session()->put('password', $user->password);
+         session()->save();
+        return redirect('/');
+      }
+    
+      elseif($request->email == ""){
+        return back()->with('status',"You need to input something");
+      }
+      else{
+          return back()->with('status',"incorrect username or password");
+      }
+    }
 }
 
 

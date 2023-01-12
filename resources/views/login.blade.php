@@ -2,7 +2,7 @@
 @extends('form1')
 @section('contents')
 
-    @csrf
+
     <div class="bg order-1 order-md-2">
         <!--<img class="cover" src="{{ asset('img/absicover.jpg') }}" >
     </div> -->
@@ -19,7 +19,8 @@
               <h3>Welcome to <strong>ABSI Dashboard</strong></h3>
               <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
               </div>
-              <form action="#" method="post">
+              <form method="post" action="/login">
+                @csrf
                 <div class="form-group first">
                     <input type="email" id="typeEmailX"
                     name='email'class="form-control form-control-lg" />
