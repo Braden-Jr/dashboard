@@ -25,7 +25,6 @@ Route::get('/absilogin', function () {
 });
 
 
-
 Route::get('/profile', function () {
     return view('profile');
 });
@@ -33,6 +32,17 @@ Route::get('/profile', function () {
 Route::get('/projects', function () {
     return view('projects');
 });
+
+Route::get('/adminaccounts', function () {
+    return view('adminaccounts');
+});
+
+/* User Routes */
+
+Route::get('/userwelcome', function () {
+    return view('userwelcome');
+});
+
 Route::get('/userdashboard',[campaigncontroller::class , 'allProjectsUser']);
 
 

@@ -18,6 +18,7 @@ class user extends Authenticatable
         $user->name=$name;
         $user->email=$email;    
         $user->password=Hash::make($password);
+        $user->type=$type;
         $user->save();
     
         return $user;

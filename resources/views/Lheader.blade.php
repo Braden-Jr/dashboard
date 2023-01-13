@@ -74,7 +74,7 @@
                       </a>
                   </li>
                   <li>
-                    <a href="admin">
+                    <a href="adminaccounts">
                         <span class="ti-id-badge" style="font-size: 15px;"></span>
                         <span>Admin Accounts</span>
                     </a>

@@ -55,7 +55,7 @@
                                 </i> Edit</a>
                                 <a href="#deleteClient" class="btn btn-danger" data-bs-toggle="modal"><i class="fa-solid fa-trash"></i>
                                    Delete</a>
-                                @include('layout.modal')
+                                @include('adminmodal')
                                   
                                 </td>
                             </tr>

@@ -14,9 +14,7 @@
             </li>
 
 
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Add Campaign</button>
-            </li>
+            
           </ul>
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"> <div class="activity-card">
@@ -29,7 +27,6 @@
                         <th style="text-align: center">Total Number of Positions</th>
                         <th style="text-align: center">Number of Personnel</th>
                         <th style="text-align: center">Status</th>
-                        <th style="text-align: center">Action</th>
                       </tr>
                     </thead>
            <tbody>

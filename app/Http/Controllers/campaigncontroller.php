@@ -270,7 +270,7 @@ class campaigncontroller extends Controller
             return back()->with('status','Invalid empty fields.');
         }
         else{
-            $user = user::create($request->name,$request->email,$request->password);
+            $user = user::create($request->name,$request->email,$request->password,$request->type);
             return back()->with('status','Account Created.');
         }
     }   
@@ -282,6 +282,7 @@ class campaigncontroller extends Controller
         $credential=[
           'email' => $request->email,
           'password' => $request->password,
+          'type' => $request->admin
         ];
         
         $users = user::where('email', $request->email)->get();
@@ -303,6 +304,7 @@ class campaigncontroller extends Controller
          session()->put('name', $user->name);
          session()->put('email', $user->email);
          session()->put('password', $user->password);
+         session()->put('type', $user->type);
          session()->save();
         return redirect('/');
       }
@@ -321,6 +323,7 @@ class campaigncontroller extends Controller
         $credential=[
           'email' => $request->email,
           'password' => $request->password,
+          'type' => $request->client
         ];
         
         $users = user::where('email', $request->email)->get();
@@ -342,6 +345,7 @@ class campaigncontroller extends Controller
          session()->put('name', $user->name);
          session()->put('email', $user->email);
          session()->put('password', $user->password);
+         session()->put('type', $user->type);
          session()->save();
         return redirect('/userdashboard');
       }
