@@ -15,6 +15,10 @@ class campaigncontroller extends Controller
         $client= allProjects::paginate(10); 
         return view('projects',['data'=>$client]);
     }
+    function allProjectsUser(){
+        $client= allProjects::paginate(10); 
+        return view('userdashboard',['data'=>$client]);
+    }
 
     function allITG_UB_delivery(){
         $client= Campaign::where('project_name','ITG - UNIONBANK Delivery Lead Gerand Elinzano')->paginate(20); 
@@ -271,7 +275,7 @@ class campaigncontroller extends Controller
         }
     }   
 
-    //login
+    //adminlogin
 
     function adminLogin(Request $request){ 
  
@@ -310,6 +314,46 @@ class campaigncontroller extends Controller
           return back()->with('status',"incorrect username or password");
       }
     }
+
+    //userlogin
+    function userLogin(Request $request){ 
+ 
+        $credential=[
+          'email' => $request->email,
+          'password' => $request->password,
+        ];
+        
+        $users = user::where('email', $request->email)->get();
+            
+        foreach($users as $useq){
+          if ($useq->status == "Deleted"){
+            return back()->with('status',"Account has been deleted");
+          }
+    
+          elseif($useq->type =="client"){
+            return back()->with('status',"This email is not an admin account");
+          }
+          
+        }
+        $loginAttempt= Auth::attempt($credential);
+        if( $loginAttempt){
+          $request->session()->regenerate();
+          $user = user::firstWhere('email', $request->email);
+         session()->put('name', $user->name);
+         session()->put('email', $user->email);
+         session()->put('password', $user->password);
+         session()->save();
+        return redirect('/userdashboard');
+      }
+    
+      elseif($request->email == ""){
+        return back()->with('status',"You need to input something");
+      }
+      else{
+          return back()->with('status',"incorrect username or password");
+      }
+    }
+
 }
 
 

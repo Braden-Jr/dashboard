@@ -33,6 +33,8 @@ Route::get('/profile', function () {
 Route::get('/projects', function () {
     return view('projects');
 });
+Route::get('/userdashboard',[campaigncontroller::class , 'allProjectsUser']);
+
 
 Route::get('/campaign',[campaigncontroller::class , 'allITG_UB_delivery']);
 
@@ -155,3 +157,10 @@ Route::get('/login', function () {
 });
 
 Route::post('/login', [campaigncontroller::class , 'adminLogin']);
+
+Route::get('/userlogin', function () {
+    return view('login');
+});
+
+Route::post('/userlogin', [campaigncontroller::class , 'userLogin']);
+
