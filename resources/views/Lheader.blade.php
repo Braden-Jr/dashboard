@@ -74,12 +74,22 @@
                       </a>
                   </li>
                   <li>
-                    <a href="admin">
+                    <a href="adminaccounts">
                         <span class="ti-id-badge" style="font-size: 15px;"></span>
                         <span>Admin Accounts</span>
                     </a>
 
                 </li>
+
+                <li>
+                    <a href="../faq">
+                    
+                        <i class="far fa-question-circle" style="font-size: 15px;"></i>
+                        <span>F.A.Q</span>
+                    </a>
+
+                </li>
+
                   <li>
                       <a href="../adminlogout">
                           <i class="fa-solid fa-right-from-bracket" style="font-size: 15px;"></i>

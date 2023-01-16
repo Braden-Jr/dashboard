@@ -35,7 +35,7 @@
                 <input type="password" id="typePasswordX" name='password'
                     class="form-control form-control-lg" />
                     <label class="form-label" for="typePasswordX">Password</label>
-                
+                    <input type="text" name="type" value ="client" id="" hidden>
                 </div>
                 </label>
 
