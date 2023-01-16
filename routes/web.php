@@ -160,6 +160,11 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
+
+Route::get('/faq', function () {
+    return view('faqs');
+});
+
 Route::post('/signup', [campaigncontroller::class , 'signup']);
 
 Route::get('/login', function () {

@@ -80,6 +80,16 @@
                     </a>
 
                 </li>
+
+                <li>
+                    <a href="../faq">
+                    
+                        <i class="far fa-question-circle" style="font-size: 15px;"></i>
+                        <span>F.A.Q</span>
+                    </a>
+
+                </li>
+
                   <li>
                       <a href="../adminlogout">
                           <i class="fa-solid fa-right-from-bracket" style="font-size: 15px;"></i>
