@@ -2,9 +2,13 @@
 
 @section('contents')
 
+<style>
+    h1{
+        text-align: center;
+    }
+</style>
 
-
-<h2>ITG - IT BAR DEVICES SUPPORT OPERATIONS MS</h2>
+<h1>ITG - IT BAR DEVICES SUPPORT OPERATIONS MS</h1>
 
 
 

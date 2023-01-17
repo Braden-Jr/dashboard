@@ -8,9 +8,14 @@
 
 @section('contents')
 
+<style>
+    h1{
+        text-align: center;
+    }
+</style>
 
 
-<h2>ITG-IT NTG</h2>
+<h1>ITG-IT NTG</h1>
 
 
 

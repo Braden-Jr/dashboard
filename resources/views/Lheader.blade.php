@@ -57,7 +57,7 @@
                   <li>
                       <a href="projects">
                           <span class="ti-briefcase" style="font-size: 15px;"></span>
-                          <span>Projects/Campaign</span>
+                          <span>Campaign/Projects</span>
                       </a>
                   </li>
                    <li>

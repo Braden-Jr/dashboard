@@ -160,22 +160,15 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
-
 Route::get('/faq', function () {
     return view('faqs');
 });
-
-Route::post('/signup', [campaigncontroller::class , 'signup']);
-
 Route::get('/login', function () {
     return view('login');
 });
 
-Route::post('/login', [campaigncontroller::class , 'adminLogin']);
+Route::post('/signup', [campaigncontroller::class , 'signup']);
+Route::post('/adminsignup', [campaigncontroller::class , 'adminsignup']);
+Route::post('/login', [campaigncontroller::class , 'userLogin']);
 
-Route::get('/userlogin', function () {
-    return view('login');
-});
-
-Route::post('/userlogin', [campaigncontroller::class , 'userLogin']);
 

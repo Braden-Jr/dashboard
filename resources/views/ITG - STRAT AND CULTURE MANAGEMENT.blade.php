@@ -2,9 +2,13 @@
 
 @section('contents')
 
+<style>
+    h1{
+        text-align: center;
+    }
+</style>
 
-
-<h2>ITG - STRAT AND CULTURE MANAGEMENT</h2>
+<h1>ITG - STRAT AND CULTURE MANAGEMENT</h1>
 
 
 

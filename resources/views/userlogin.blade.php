@@ -16,7 +16,7 @@
           <div class="col-md-6">
             <div class="form-block">
               <div class="text-center mb-5">
-              <h3>Welcome to <strong>ABSI Dashboard</strong></h3>
+              <h3>Welcome to <strong>ABSI IT-COE Dashboard</strong></h3>
               <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
               </div>
               <form method="post" action="/userlogin">
@@ -52,8 +52,6 @@
         </div>
       </div>
     </div>
-
-    
   </div>
     
     

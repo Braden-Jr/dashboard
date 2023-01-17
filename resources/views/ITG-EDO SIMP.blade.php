@@ -9,8 +9,12 @@
 @section('contents')
 
 
-
-<h2>ITG-EDO SIMP</h2>
+<style>
+    h1{
+        text-align: center;
+    }
+</style>
+<h1>ITG-EDO SIMP</h1>
 
 
 

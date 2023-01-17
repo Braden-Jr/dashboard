@@ -9,8 +9,12 @@
 @section('contents')
 
 
-
-<h2>ITG-UNION BANK CUSTOMER VERIFICATION PLATFORM</h2>
+<style>
+    h1{
+        text-align: center;
+    }
+</style>
+<h1>ITG-UNION BANK CUSTOMER VERIFICATION PLATFORM</h1>
 
 
 

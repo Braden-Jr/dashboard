@@ -9,8 +9,12 @@
 @section('contents')
 
 
-
-<h2>ITG-LAS</h2>
+<style>
+    h1{
+        text-align: center;
+    }
+</style>
+<h1>ITG-LAS</h1>
 
 
 

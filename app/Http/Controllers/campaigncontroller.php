@@ -334,8 +334,12 @@ class campaigncontroller extends Controller
           }
     
           elseif($useq->type =="client"){
-            return back()->with('status',"This email is not an admin account");
+            return view('/userdashboard', $data);
           }
+          elseif($useq->type =="admin"){
+            return view('/welcome');
+          }
+          
           
         }
         $loginAttempt= Auth::attempt($credential);
@@ -357,7 +361,6 @@ class campaigncontroller extends Controller
           return back()->with('status',"incorrect username or password");
       }
     }
-
 }
 
 

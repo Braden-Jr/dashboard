@@ -1,18 +1,9 @@
 @extends('form')
-
 @section('contents')
-
-
 <div class="main-content">
-
-        
     <main>
         <h1 class="dash-title" style="color: #171742">Projects</h1>
         
-       
-        
-        
-       
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
               <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Projects</button>
@@ -48,6 +39,7 @@
                                 <td class="DATA">{{ $datas->status}}</td>
                                 
                                 <td>
+
                                    <a href="#editclient{{ $datas->id }}" class="btn btn-success" data-bs-toggle="modal"><i class="fa fa-edit">
                                 </i> Edit</a>
                                 <a href="#deleteClient{{ $datas->id }}" class="btn btn-danger" data-bs-toggle="modal"><i class="fa-solid fa-trash"></i>
@@ -67,11 +59,6 @@
             </div>
           </div>
 
-
-
-
-
-            
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><style>
               .cascading-right {
               margin-right: -50px;

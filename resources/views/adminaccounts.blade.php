@@ -8,11 +8,6 @@
         
     <main>
         <h2 class="dash-title">Accounts</h2>
-        
-       
-        
-        
-       
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
               <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Admin Account</button>
@@ -38,11 +33,6 @@
                       </tr>
                     </thead>
            <tbody>
-
-          
-                
-      
-
                             <tr>
                                 <td></td>
                                 <td></td>

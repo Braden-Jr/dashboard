@@ -8,9 +8,13 @@
 
 @section('contents')
 
+<style>
+    h1{
+        text-align: center;
+    }
+</style>
 
-
-<h2>ITG-UNION BANK BAYANIHAN BONDS PH</h2>
+<h1>ITG-UNION BANK BAYANIHAN BONDS PH</h1>
 
 
 

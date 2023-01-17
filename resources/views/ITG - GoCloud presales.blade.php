@@ -1,10 +1,14 @@
 @extends('form')
 
 @section('contents')
+<style>
+    h1{
+        text-align: center;
+    }
+</style>
 
 
-
-<h2>ITG - GoCloud presales</h2>
+<h1>ITG - GoCloud presales</h1>
 
 
 

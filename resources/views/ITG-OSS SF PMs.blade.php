@@ -2,9 +2,13 @@
 
 @section('contents')
 
+<style>
+    h1{
+        text-align: center;
+    }
+</style>
 
-
-<h2>ITG-OSS SF PMs</h2>
+<h1>ITG-OSS SF PMs</h1>
 
 
 

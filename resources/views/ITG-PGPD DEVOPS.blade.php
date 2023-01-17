@@ -9,8 +9,12 @@
 @section('contents')
 
 
-
-<h2>ITG-PGPD DEVOPS</h2>
+<style>
+    h1{
+        text-align: center;
+    }
+</style>
+<h1>ITG-PGPD DEVOPS</h1>
 
 
 

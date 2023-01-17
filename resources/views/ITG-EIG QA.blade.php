@@ -7,10 +7,14 @@
 <h2>@extends('form')
 
 @section('contents')
+<style>
+    h1{
+        text-align: center;
+    }
+</style>
 
 
-
-<h2>ITG-EIG QA</h2>
+<h1>ITG-EIG QA</h1>
 
 
 

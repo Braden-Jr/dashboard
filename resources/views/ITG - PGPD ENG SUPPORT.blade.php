@@ -2,9 +2,13 @@
 
 @section('contents')
 
+<style>
+    h1{
+        text-align: center;
+    }
+</style>
 
-
-<h2>ITG - PGPD ENG SUPPORT</h2>
+<h1>ITG - PGPD ENG SUPPORT</h1>
 
 
 

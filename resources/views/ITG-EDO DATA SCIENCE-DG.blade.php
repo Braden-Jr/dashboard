@@ -3,8 +3,12 @@
 @section('contents')
 
 
-
-<h2>ITG-EDO DATA SCIENCE-DG</h2>
+<style>
+    h1{
+        text-align: center;
+    }
+</style>
+<h1>ITG-EDO DATA SCIENCE-DG</h1>
 
 
 
