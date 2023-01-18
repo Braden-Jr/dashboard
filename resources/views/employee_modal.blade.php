@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 06f1d08dc7dbbc3da6384fbf7b0eeec1fe4bc88f
 <div class="modal fade" id="editEmployee{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">

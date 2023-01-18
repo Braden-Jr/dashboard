@@ -150,13 +150,7 @@ Route::post('/projects', [campaigncontroller::class , 'addcampaign']);
 
 Route::post('/deleteclient ', [campaigncontroller::class , 'deletecampaign']);
 
-<<<<<<< HEAD
 //* Client Signup 
-=======
-/*second CRUD */
-Route::post('/editEmployee ', [campaigncontroller::class , 'updateEmployee']);
-/* Route::post('/deleteEmployee ', [campaigncontroller::class , 'deletecampaign']); */
->>>>>>> 06f1d08dc7dbbc3da6384fbf7b0eeec1fe4bc88f
 
 Route::get('/signup', function () {
     return view('signup');
