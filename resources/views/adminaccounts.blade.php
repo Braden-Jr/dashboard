@@ -89,34 +89,23 @@
               
                   <form method="POST" action="/adminsignup">
                   @csrf
-                  <!-- 2 column grid layout with text inputs for the first and last names -->
+                  <!-- Name Input-->
                   <div class="row">
                     <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="text" name='fname'id="form3Example1" class="form-control" />
-                      <label class="form-label" for="form3Example1">First name</label>
+                      <input type="text" name='name'id="form3Example1" class="form-control" />
+                      <label class="form-label" for="form3Example1">Full Name</label>
                     </div>
                     </div>
                     <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="text" name='lname' id="form3Example2" class="form-control" />
-                      <label class="form-label" for="form3Example2">Last name</label>
+                      <input type="email" name='email' id="form3Example3" class="form-control" />
+                      <label class="form-label" for="form3Example2">Email</label>
                     </div>
                     </div>
                   </div>
             
-                  <!-- Email input -->
-                  <div class="form-outline mb-4">
-                    <input type="email" name='email' id="form3Example3" class="form-control" />
-                    <label class="form-label" for="form3Example3">Email address</label>
-                  </div>
-            
-                  <div class="form-outline mb-4">
-                    <input type="text" name='address' id="form3Example4" class="form-control" />
-                    <label class="form-label" for="form3Example3">Address</label>
-                    </div>
-            
-                  <!-- Password input -->
+                  <!-- Password -->
                   <div class="form-outline mb-4">
                     <input type="password" name='password' id="form3Example5" class="form-control" />
                     <input type="text" name='type' value="admin" hidden	>

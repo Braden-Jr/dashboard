@@ -230,6 +230,31 @@ class campaigncontroller extends Controller
    }
 }
 
+      // Update Employee//
+
+  function updateEmployee(Request $request){
+    $client =campaigns::find($request->uid);
+  
+
+if($client){
+$client->name= $request->name;
+$client->employee_no= $request->employee_no;
+$client->hire_date = $request->hire_date;
+$client->contact_number = $request->contact_number;
+$client->birthdate = $request->birthdate;
+$client->project_name= $request->project_name;
+$client->designation= $request->designation;
+$client->tenure = $request->tenure;
+$client->total_it_exp = $request->total_it_exp ;
+$client->status = $request->status;
+
+$client->save();
+
+return back()->with("update successfully");
+}
+}
+
+
     // Add Campaign //
 
     function addcampaign(Request $request){
@@ -266,14 +291,33 @@ class campaigncontroller extends Controller
     // Signup //
 
     function signup(Request $request){
-        if($request->name ==""||$request->email =="" ||$request->password == ""){
-            return back()->with('status','Invalid empty fields.');
-        }
-        else{
-            $user = user::create($request->name,$request->email,$request->password,$request->type);
+        // if($request->name ==""||$request->email =="" ||$request->password == ""){
+        //     return back()->with('status','Invalid empty fields.');
+        // }
+        // else{
+            $client = '2';
+            $status = 'Active';
+            $user = user::create($request->name,$request->email,$request->password,$client,$status);
             return back()->with('status','Account Created.');
-        }
+            
+        // }
     }   
+
+    //Admin Signup
+
+    function adminsignup(Request $request){
+        // if($request->name ==""||$request->email =="" ||$request->password == ""){
+        //     return back()->with('status','Invalid empty fields.');
+        // }
+        // else{
+            $client = '1';
+            $status = 'Active';
+            $user = user::create($request->name,$request->email,$request->password,$client,$status);
+            return back()->with('status','Account Created.');
+            
+        // }
+    }   
+
 
     //adminlogin
 
@@ -323,7 +367,7 @@ class campaigncontroller extends Controller
         $credential=[
           'email' => $request->email,
           'password' => $request->password,
-          'type' => $request->client
+          'role_id' => $request->client
         ];
         
         $users = user::where('email', $request->email)->get();
@@ -333,10 +377,12 @@ class campaigncontroller extends Controller
             return back()->with('status',"Account has been deleted");
           }
     
-          elseif($useq->type =="client"){
-            return view('/userdashboard', $data);
+          elseif($useq->role_id =="2"){
+            $client= allProjects::paginate(10);
+            //return view('/userdashboard',['data'=>$client]);
+            return view('userdashboard',['data'=>$client]);
           }
-          elseif($useq->type =="admin"){
+          elseif($useq->role_id =="1"){
             return view('/welcome');
           }
           

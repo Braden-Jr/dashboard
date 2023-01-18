@@ -15,19 +15,16 @@ return new class extends Migration
     {
         Schema::create('campaigns', function (Blueprint $table) {
             $table->id();
-            $table->string('last_name');
-            $table->string('first_name');
-            $table->string('middle_name');
-            $table->string('name');
-            $table->string('employee_number'); 
-            $table->string('hire_date');
-            $table->string('project_name');
-            $table->string('designation'); 
-            $table->string('project_name_july');
-            $table->string('tenure'); 
-            $table->string('total_it_exp');
-            $table->string('actual_role');
-            $table->string('remarks');
+            $table->string('name')->nullable();
+            $table->string('employee_number')->nullable(); 
+            $table->string('hire_date')->nullable();
+            $table->string('contact_number')->nullable();
+            $table->string('birthdate')->nullable();
+            $table->string('project_name')->nullable();
+            $table->string('designation')->nullable(); 
+            $table->string('tenure')->nullable(); 
+            $table->string('total_it_exp')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

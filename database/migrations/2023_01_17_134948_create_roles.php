@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('allprojects', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('name_of_campaign');
-            $table->string('team_leader');
-            $table->string('total_number_of_positions');
-            $table->string('number_of_personnel');
-            $table->string('status');
+            $table->string('name');
             $table->timestamps();
-        }); 
+        });
     }
 
     /**
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('allprojects');
+        Schema::dropIfExists('roles');
     }
 };
