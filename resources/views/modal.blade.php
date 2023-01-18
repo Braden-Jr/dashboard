@@ -10,8 +10,6 @@
           <form method="post" action="/updateclient">
               @csrf
               <div class="mb-md-5 mt-md-4 pb-5"   >
-  
-               
                   <div class="form-outline form-white mb-4" >
                       <input type="text"
                        class="form-control form-control-sm" 
@@ -72,14 +70,6 @@
     </div>
   </div>
   </div>
-  
-  
-  
-  
-  
-  
-  
-  
   
   <div class="modal fade" id="deleteClient{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

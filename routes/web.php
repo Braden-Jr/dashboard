@@ -154,7 +154,9 @@ Route::post('/projects', [campaigncontroller::class , 'addcampaign']);
 
 Route::post('/deleteclient ', [campaigncontroller::class , 'deletecampaign']);
 
-
+/*second CRUD */
+Route::post('/editEmployee ', [campaigncontroller::class , 'updateEmployee']);
+/* Route::post('/deleteEmployee ', [campaigncontroller::class , 'deletecampaign']); */
 
 Route::get('/signup', function () {
     return view('signup');

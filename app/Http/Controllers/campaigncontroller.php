@@ -229,6 +229,29 @@ class campaigncontroller extends Controller
     return back()->with("update successfully");
    }
 }
+  // Update Employee//
+
+  function updateEmployee(Request $request){
+    $client =campaigns::find($request->uid);
+  
+
+if($client){
+$client->name= $request->name;
+$client->employee_no= $request->employee_no;
+$client->hire_date = $request->hire_date;
+$client->contact_number = $request->contact_number;
+$client->birthdate = $request->birthdate;
+$client->project_name= $request->project_name;
+$client->designation= $request->designation;
+$client->tenure = $request->tenure;
+$client->total_it_exp = $request->total_it_exp ;
+$client->status = $request->status;
+
+$client->save();
+
+return back()->with("update successfully");
+}
+}
 
     // Add Campaign //
 
@@ -334,7 +357,7 @@ class campaigncontroller extends Controller
           }
     
           elseif($useq->type =="client"){
-            return view('/userdashboard', $data);
+            return view('/userdashboard', ['data'=>$client]);
           }
           elseif($useq->type =="admin"){
             return view('/welcome');
