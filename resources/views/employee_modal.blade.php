@@ -22,7 +22,7 @@
                         <input type="text"
                          class="form-control form-control-sm" 
                          style="background-color:white;color:black;border:2px solid #171742;font-size: 20px; "
-                          value="{{ $datas->employee_no }}" 
+                          value="{{ $datas->employee_number }}" 
                           name="leader" />
                         <label class="form-label  DATA" for="typeEmailX">Employee No.</label>
                     </div>
@@ -86,7 +86,7 @@
                     <input type="text"
                      class="form-control form-control-sm" 
                      style="background-color:white;color:black;border:2px solid #171742;font-size: 20px; "
-                      value="{{ $datas->total_it_exp }}" 
+                      value="{{ $datas->total_it_exp}}" 
                       name="status" />
                     <label class="form-label DATA" for="typeEmailX">Total IT Exp</label>
                 </div>

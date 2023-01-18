@@ -74,13 +74,13 @@ Route::get('/ITG-OSS SERVICE FULFILLMENT',[campaigncontroller::class , 'ITGOSSSE
 
 Route::get('/ITG-EITSC SD',[campaigncontroller::class , 'ITGEITSCSD']);
 
-Route::get('/ITG-AMICASSA IT SUPPORT',[campaigncontroller::class , 'ITGAMICASSAITSUPPORT']);
+Route::get('/ITG - AMICASSA IT Support',[campaigncontroller::class , 'ITGAMICASSAITSUPPORT']);
 
 Route::get('/ITG-EITSC SF',[campaigncontroller::class , 'ITGEITSCSF']);
 
 Route::get('/ITG-EIG QA',[campaigncontroller::class , 'ITGEIGQA']);
 
-Route::get('/ITG-ALPHAMAX',[campaigncontroller::class , 'ITGALPHAMAX']);
+Route::get('/ITG - ALPHAMAX',[campaigncontroller::class , 'ITGALPHAMAX']);
 
 Route::get('/ITG-IT NTG',[campaigncontroller::class , 'ITGITNTG']);
 
@@ -149,6 +149,9 @@ Route::post('/updateclient ', [campaigncontroller::class , 'updateClient']);
 Route::post('/projects', [campaigncontroller::class , 'addcampaign']);
 
 Route::post('/deleteclient ', [campaigncontroller::class , 'deletecampaign']);
+
+/*Second CRUD */
+Route::post('/editEmployee ', [campaigncontroller::class , 'updateEmployee']);
 
 //* Client Signup 
 

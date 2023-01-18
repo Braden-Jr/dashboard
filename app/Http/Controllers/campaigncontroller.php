@@ -254,7 +254,6 @@ return back()->with("update successfully");
 }
 }
 
-
     // Add Campaign //
 
     function addcampaign(Request $request){
