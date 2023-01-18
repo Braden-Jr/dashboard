@@ -7,16 +7,17 @@
 
         
     <main>
-        <h2 class="dash-title">Profile</h2>
-        
-       
-        
- 
+        <h1 class="dash-title">Profile</h1>
            
                 <style>
                     .cascading-right {
                     margin-right: -50px;
+
                     }
+                    .dash-title{
+                   text-align: center;
+                   color: #171742;
+    }
                   
                     @media (max-width: 991.98px) {
                     .cascading-right {
@@ -69,23 +70,15 @@
                                 </div>
                                 </div>
                         <!-- Password input -->
-                   
-                  
-                        <!-- Submit button -->
+                        <a href="#changePass" class="btn btn-success" data-bs-toggle="modal"><i class="fa-solid fa-trash"></i>
+                          Change Password</a>
+                          @include('changemodal')
                      
                       </div>
                       </div>
                     </div>
                     </div>
                   </div>
-                 
-         
-
-
-
-
-
-     
         
     </main>
     

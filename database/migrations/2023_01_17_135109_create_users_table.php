@@ -13,15 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('allprojects', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name_of_campaign');
-            $table->string('team_leader');
-            $table->string('total_number_of_positions');
-            $table->string('number_of_personnel');
+            $table->string('name');
+            $table->string('email');
+            $table->string('password');
             $table->string('status');
+            $table->foreignId('role_id')->constrained('roles')->onDelete('cascade');
             $table->timestamps();
-        }); 
+        });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -31,6 +32,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('allprojects');
+        Schema::dropIfExists('users');
     }
 };
+ 

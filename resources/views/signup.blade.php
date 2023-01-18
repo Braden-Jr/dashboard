@@ -23,17 +23,17 @@
                 <form method="post" action="/signup">
                   @csrf
                 <div class="form-group first">
-                    <input type="text" name='name'id="form3Example1" class="form-control" />
+                    <input type="text" name='name'id="form3Example1" class="form-control" required/>
                     <label class="form-label" for="form3Example1">Full Name</label>
                 </div>
                 <div class="form-group first">
                     <input type="email" id="typeEmailX"
-                    name='email'class="form-control form-control-lg" />
+                    name='email'class="form-control form-control-lg" required/>
                     <label class="form-label" for="typeEmailX">Email</label>
                 </div>
                 <div class="form-group last mb-3">
                 <input type="password" id="typePasswordX" name='password'
-                    class="form-control form-control-lg" />
+                    class="form-control form-control-lg" required/>
                     <label class="form-label" for="typePasswordX">Password</label>
                     <input type="text" name="type" value ="client" id="" hidden>
                 </div>

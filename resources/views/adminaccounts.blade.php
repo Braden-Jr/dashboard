@@ -1,13 +1,17 @@
 @extends('form')
 
 @section('contents')
+<style>
+  .dash-title{
+ text-align: center;
+ color: #171742;
 
+ }
+</style>
 
-<div class="main-content">
-
-        
+<div class="main-content">     
     <main>
-        <h2 class="dash-title">Accounts</h2>
+        <h1 class="dash-title">Accounts</h1>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
               <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Admin Account</button>
@@ -29,7 +33,7 @@
                         <th style="text-align: center">Address</th>
                         <th style="text-align: center">Status</th>
               
-                        <th style="text-align: center">Status</th>
+                        <th style="text-align: center">Action</th>
                       </tr>
                     </thead>
            <tbody>
@@ -41,9 +45,9 @@
                                 <td></td>
                                 
                                 <td>
-                                   <a href="#editclient" class="btn btn-success" data-bs-toggle="modal"><i class="fa fa-edit">
+                                   <a href="#editAccount" class="btn btn-success" data-bs-toggle="modal"><i class="fa fa-edit">
                                 </i> Edit</a>
-                                <a href="#deleteClient" class="btn btn-danger" data-bs-toggle="modal"><i class="fa-solid fa-trash"></i>
+                                <a href="#deleteAccount" class="btn btn-danger" data-bs-toggle="modal"><i class="fa-solid fa-trash"></i>
                                    Delete</a>
                                 @include('adminmodal')
                                   

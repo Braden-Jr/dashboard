@@ -76,7 +76,6 @@
   .cascading-right {
   margin-right: -50px;
   }
-
   @media (max-width: 991.98px) {
   .cascading-right {
     margin-right: 0;
@@ -156,9 +155,9 @@
                 <label class="form-label" for="form3Example10">Status</label>
               </div>
              
-      <button type="submit" class="btn btn-primary btn-block mb-4">
-        Add Employee
-      </button>
+              <button type="submit" class="btn btn-primary btn-block mb-4">
+                Add Employee
+              </button>
       @if(session('status'))
       <div class="alert alert-success">
         {{ session('status') }}
@@ -174,5 +173,6 @@
 </section></div>
 </div>
 </div>
+
 
 

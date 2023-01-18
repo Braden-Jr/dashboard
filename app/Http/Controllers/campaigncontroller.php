@@ -229,7 +229,8 @@ class campaigncontroller extends Controller
     return back()->with("update successfully");
    }
 }
-  // Update Employee//
+
+      // Update Employee//
 
   function updateEmployee(Request $request){
     $client =campaigns::find($request->uid);
@@ -252,6 +253,7 @@ $client->save();
 return back()->with("update successfully");
 }
 }
+
 
     // Add Campaign //
 
@@ -289,14 +291,33 @@ return back()->with("update successfully");
     // Signup //
 
     function signup(Request $request){
-        if($request->name ==""||$request->email =="" ||$request->password == ""){
-            return back()->with('status','Invalid empty fields.');
-        }
-        else{
-            $user = user::create($request->name,$request->email,$request->password,$request->type);
+        // if($request->name ==""||$request->email =="" ||$request->password == ""){
+        //     return back()->with('status','Invalid empty fields.');
+        // }
+        // else{
+            $client = '2';
+            $status = 'Active';
+            $user = user::create($request->name,$request->email,$request->password,$client,$status);
             return back()->with('status','Account Created.');
-        }
+            
+        // }
     }   
+
+    //Admin Signup
+
+    function adminsignup(Request $request){
+        // if($request->name ==""||$request->email =="" ||$request->password == ""){
+        //     return back()->with('status','Invalid empty fields.');
+        // }
+        // else{
+            $client = '1';
+            $status = 'Active';
+            $user = user::create($request->name,$request->email,$request->password,$client,$status);
+            return back()->with('status','Account Created.');
+            
+        // }
+    }   
+
 
     //adminlogin
 
@@ -346,7 +367,7 @@ return back()->with("update successfully");
         $credential=[
           'email' => $request->email,
           'password' => $request->password,
-          'type' => $request->client
+          'role_id' => $request->client
         ];
         
         $users = user::where('email', $request->email)->get();
@@ -356,10 +377,12 @@ return back()->with("update successfully");
             return back()->with('status',"Account has been deleted");
           }
     
-          elseif($useq->type =="client"){
-            return view('/userdashboard', ['data'=>$client]);
+          elseif($useq->role_id =="2"){
+            $client= allProjects::paginate(10);
+            //return view('/userdashboard',['data'=>$client]);
+            return view('userdashboard',['data'=>$client]);
           }
-          elseif($useq->type =="admin"){
+          elseif($useq->role_id =="1"){
             return view('/welcome');
           }
           
