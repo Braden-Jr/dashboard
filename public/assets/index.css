@@ -853,3 +853,11 @@ body {
         width: 70%
     }
 
+
+    #profilelabel {
+      color: #fff;
+    }
+
+    #changepassbtn{
+      background-color: #634AF2;
+    }

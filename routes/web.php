@@ -151,6 +151,8 @@ Route::post('/updateclient ', [campaigncontroller::class , 'updateClient']);
 
 Route::post('/projects', [campaigncontroller::class , 'addcampaign']);
 
+Route::post('/ITG-ALPHAMAX', [campaigncontroller::class , 'addemployee']);
+
 Route::post('/deleteclient ', [campaigncontroller::class , 'deletecampaign']);
 
 /*Second CRUD */
@@ -174,5 +176,9 @@ Route::post('/signup', [campaigncontroller::class , 'signup']);
 Route::post('/adminsignup', [campaigncontroller::class , 'adminsignup']);
 
 Route::post('/login', [campaigncontroller::class , 'userLogin']);
+
+//Logout
+
+Route::get('/adminlogout', [campaigncontroller::class , 'adminLogout'])->name('adminlogout');
 
 

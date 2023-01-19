@@ -22,9 +22,9 @@
               <form method="post" action="/login">
                 @csrf
                 <div class="form-group first">
-                    <input type="email" id="typeEmailX"
-                    name='email'class="form-control form-control-lg" />
-                    <label class="form-label" for="typeEmailX">Email</label>
+                    <input type="text" id="typeEmailX"
+                    name='employee_number'class="form-control form-control-lg" />
+                    <label class="form-label" for="typeEmailX">Employee Number</label>
                 </div>
                 <div class="form-group last mb-3">
                 <input type="password" id="typePasswordX" name='password'
@@ -33,10 +33,7 @@
                 </div>
                 </label>
 
-                <div>
-                    <p class="text">Don't have an account? <a href="absisignup" class="text-a">Sign Up</a>
-                    </p>
-                </div> 
+                 
 
                 <button class="btn btn-block btn-primary" type="submit">Login</button>
                                     @if (session('status'))

@@ -1,4 +1,4 @@
-@extends('form')
+@extends('form2')
 @section('contents')
 <h2>@extends('form')
 @section('contents')
@@ -92,13 +92,13 @@
       ">
     <div class="card-body p-5 shadow-5 text-center" id="addcampaign">
   
-      <form method="POST" action="/ITG-ALPHAMAX">
+      <form method="POST" action="/ITG%20-%20ALPHAMAX">
       @csrf
       <!-- 2 column grid layout with text inputs for the first and last names -->
       <div class="row">
         <div class="col-md-12">
       <div class="form-outline mb-4">
-        <input type="text" name='personnel' id="form3Example1" class="form-control" />
+        <input type="text" name='name' id="form3Example1" class="form-control" />
         <label class="form-label" for="form3Example1">Name</label>
         </div>
 

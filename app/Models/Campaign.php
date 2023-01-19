@@ -10,7 +10,7 @@ class Campaign extends Model
 
     use HasFactory;
 
-    public static function addemployee($name,$employee_number,$hire_date,$contact_number,$birthdate,$project_name,$designation,$tenure,$total_it_exp,$status){
+    public static function create($name,$employee_number,$hire_date,$contact_number,$birthdate,$project_name,$designation,$tenure,$total_it_exp,$status){
         $campaign = new campaign();
     
         $campaign->name=$name;
