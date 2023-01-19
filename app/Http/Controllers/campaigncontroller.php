@@ -19,7 +19,10 @@ class campaigncontroller extends Controller
         $client= allProjects::paginate(10); 
         return view('userdashboard',['data'=>$client]);
     }
-
+    function allAdmin(){
+        $client= User::where('role_id','1')->paginate(5); 
+        return view('adminaccounts',['data'=>$client]);
+    }
     function allITG_UB_delivery(){
         $client= Campaign::where('project_name','ITG - UNIONBANK Delivery Lead Gerand Elinzano')->paginate(20); 
         return view('ITG-UNION BANK DELIVERY',['data'=>$client]);
@@ -253,7 +256,6 @@ $client->save();
 return back()->with("update successfully");
 }
 }
-
 
     // Add Campaign //
 

@@ -29,45 +29,36 @@
                       <tr>
                         <th style="text-align: center">Name</th>
                         <th style="text-align: center">Email</th>
-                        <th style="text-align: center">Type</th>
-                        <th style="text-align: center">Address</th>
                         <th style="text-align: center">Status</th>
-              
+                        <th></th>
                         <th style="text-align: center">Action</th>
                       </tr>
                     </thead>
            <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+            @foreach ($data as $datas )
+                
+            <tr>
+                <td class="DATA"><a href="{{$datas->name}}"> {{$datas->name}} </a> </td>  
+                <td class="DATA">{{ $datas->email}}</td>
+                <td class="DATA">{{ $datas->status}}</td>
+                <td class="DATA">{{ $datas->action}}</td>
                                 
                                 <td>
-                                   <a href="#editAccount" class="btn btn-success" data-bs-toggle="modal"><i class="fa fa-edit">
+                                   <a href="#editAccount{{ $datas->id }}" class="btn btn-success" data-bs-toggle="modal"><i class="fa fa-edit">
                                 </i> Edit</a>
-                                <a href="#deleteAccount" class="btn btn-danger" data-bs-toggle="modal"><i class="fa-solid fa-trash"></i>
+                                <a href="#deleteAccount{{ $datas->id }}" class="btn btn-danger" data-bs-toggle="modal"><i class="fa-solid fa-trash"></i>
                                    Delete</a>
                                 @include('adminmodal')
                                   
                                 </td>
                             </tr>
-                            
-                            
-                           
+                            @endforeach
                         </tbody>
                        
                   </table>
-                
-                 
+                  <div class="row" style="padding-left:20px;border-radius:20px;display:flex;justify-content:center;margin-top:50px;">{{ $data->links() }}</div>
             </div>
           </div>
-
-
-
-
-
             
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><style>
               .cascading-right {

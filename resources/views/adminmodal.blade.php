@@ -1,4 +1,4 @@
-<div class="modal fade" id="editAccount" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editAccount{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -13,47 +13,30 @@
                       <input type="text"
                        class="form-control form-control-sm" 
                        style="background-color:white;color:black;border:2px solid #171742;font-size: 20px; "
-                        value="" 
+                        value="{{ $datas->name }}" 
                         name="name" />
-                      <label class="form-label DATA" for="typeEmailX"> Name of Campaign</label>
+                      <label class="form-label DATA" for="typeEmailX"> Name</label>
                   </div>
   
                   <div class="form-outline form-white mb-4" >
                       <input type="text"
                        class="form-control form-control-sm" 
                        style="background-color:white;color:black;border:2px solid #171742;font-size: 20px; "
-                        value="" 
+                        value="{{ $datas->email }}" 
                         name="leader" />
-                      <label class="form-label  DATA" for="typeEmailX">Team Leader</label>
+                      <label class="form-label  DATA" for="typeEmailX">Email</label>
                   </div>
-               
-                  <div class="form-outline form-white mb-4" >
-                      <input type="text"
-                       class="form-control form-control-sm" 
-                       style="background-color:white;color:black;border:2px solid #171742;font-size: 20px; "
-                        value="" 
-                        name="positions" />
-                      <label class="form-label DATA" for="typeEmailX">Total Number of Positions</label>
-                  </div>
-  
-                  <div class="form-outline form-white mb-4" >
-                    <input type="text"
-                     class="form-control form-control-sm" 
-                     style="background-color:white;color:black;border:2px solid #171742;font-size: 20px; "
-                      value="" 
-                      name="personnel" />
-                    <label class="form-label DATA" for="typeEmailX">Number of Personnel</label>
-                    <input type="text" name="uid" value="" >
-                </div>
   
                 <div class="form-outline form-white mb-4" >
                   <input type="text"
                    class="form-control form-control-sm" 
                    style="background-color:white;color:black;border:2px solid #171742;font-size: 20px; "
-                    value="" 
+                    value="{{ $datas->status }}" 
                     name="status" />
                   <label class="form-label DATA" for="typeEmailX">Status</label>
                 </div>
+
+                
                   <button class="btn btn-outline-dark" type="submit"><i class="fa fa-edit"></i> Save</button>
        
              
@@ -68,7 +51,7 @@
   </div>
   </div>
  
-  <div class="modal fade" id="deleteAccount" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="deleteAccount{{ $datas->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -85,10 +68,10 @@
                         <input type="text"
                          class="form-control form-control-sm" 
                          style="background-color:white;color:black;border:2px solid #171742;font-size: 20px; "
-                          value="" 
+                          value="{{ $datas->name}}" 
                           name="name" disabled/>
                         <label class="form-label DATA" for="typeEmailX"> Account Name</label>
-                        <input type="text" name="did" value="" hidden>
+                        <input type="text" name="did" value="{{ $datas->id }}" hidden>
                     </div>
                     
                     <button class="btn btn-outline-dark " type="submit"><i class="fa-solid fa-trash"></i> Delete</button>
