@@ -20,14 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/absilogin', function () {
-    return view('login');
-});
+Route::view('/absilogin', 'login');
 
-
-Route::get('/profile', function () {
-    return view('profile');
-});
+Route::view('/profile', 'profile');
 
 Route::get('/projects', function () {
     return view('projects');
@@ -37,19 +32,22 @@ Route::get('/adminaccounts', function () {
     return view('adminaccounts');
 });
 
+
 /* User Routes */
 
 Route::get('/userwelcome', function () {
     return view('userwelcome');
 });
 
+Route::get('/adminaccounts',[campaigncontroller::class , 'allAdmin']);
+
 Route::get('/userdashboard',[campaigncontroller::class , 'allProjectsUser']);
+
+Route::get('/projects',[campaigncontroller::class , 'allProjectsUser']);
 
 Route::get('/campaign',[campaigncontroller::class , 'allITG_UB_delivery']);
 
 Route::get('/projects',[campaigncontroller::class , 'allProjects']);
-
-Route::get('/adminaccounts',[campaigncontroller::class , 'allAdmin']);
 
 /* CAMPAIGNS */
 
@@ -154,9 +152,12 @@ Route::post('/updateclient ', [campaigncontroller::class , 'updateClient']);
 Route::post('/projects', [campaigncontroller::class , 'addcampaign']);
 
 Route::post('/deleteclient ', [campaigncontroller::class , 'deletecampaign']);
-/*second CRUD */
+
+/*Second CRUD */
 Route::post('/editEmployee ', [campaigncontroller::class , 'updateEmployee']);
-/* Route::post('/deleteEmployee ', [campaigncontroller::class , 'deletecampaign']); */
+
+//* Client Signup 
+
 Route::get('/signup', function () {
     return view('signup');
 });
@@ -169,7 +170,9 @@ Route::get('/login', function () {
 });
 
 Route::post('/signup', [campaigncontroller::class , 'signup']);
+
 Route::post('/adminsignup', [campaigncontroller::class , 'adminsignup']);
+
 Route::post('/login', [campaigncontroller::class , 'userLogin']);
 
 

@@ -19,10 +19,14 @@ class campaigncontroller extends Controller
         $client= allProjects::paginate(10); 
         return view('userdashboard',['data'=>$client]);
     }
+
+    // Display Admin Accounts
+
     function allAdmin(){
         $client= User::where('role_id','1')->paginate(5); 
         return view('adminaccounts',['data'=>$client]);
     }
+
     function allITG_UB_delivery(){
         $client= Campaign::where('project_name','ITG - UNIONBANK Delivery Lead Gerand Elinzano')->paginate(20); 
         return view('ITG-UNION BANK DELIVERY',['data'=>$client]);
@@ -260,12 +264,13 @@ return back()->with("update successfully");
     // Add Campaign //
 
     function addcampaign(Request $request){
-        if($request->campaign =="" || $request->leader =="" ||$request->positions ==""||$request->personnel =="")
+        if($request->name =="" || $request->employeenumber =="" ||$request->hiredate ==""||$request->contactnumber =="" ||$request->birthdate =="" ||$request->project =="" ||$request->designation =="" ||$request->tenure =="" ||$request->totalit =="" ||$request->status =="")
         {
             return back()->with('status','Invalid empty fields.');
         }
         else{
-            $user = allprojects::create($request->campaign,$request->leader,$request->positions,$request->personnel);
+            $status = 'Active';
+            $user = allprojects::create($request->campaign,$request->leader,$request->positions,$request->personnel,$status);
             return back()->with('status','Campaign Added.');
         }
     }
@@ -288,6 +293,22 @@ return back()->with("update successfully");
     return back()->with("failed");
    }
     }
+
+
+    //Add Employee//
+
+    function addemployee(Request $request){
+        if($request->campaign =="" || $request->leader =="" ||$request->positions ==""||$request->personnel =="")
+        {
+            return back()->with('status','Invalid empty fields.');
+        }
+        else{
+            $status = 'Active';
+            $user = allprojects::create($request->campaign,$request->leader,$request->positions,$request->personnel,$status);
+            return back()->with('status','Campaign Added.');
+        }
+    }
+
 
 
     // Signup //

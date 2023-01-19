@@ -125,7 +125,6 @@
             <label class="form-label" for="form3Example5">Birthdate</label>
           </div>
    
-    
           <div class="form-outline mb-4">
             <input type="text" name='positions' id="form3Example6" class="form-control" />
             <label class="form-label" for="form3Example6">Project Name</label>

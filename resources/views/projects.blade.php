@@ -110,7 +110,6 @@
                     <label class="form-label" for="form3Example3">Number of Personnel</label>
                     </div>
 
-                   
                   <button type="submit" class="btn btn-primary btn-block mb-4">
                     Add Campaign
                   </button>
