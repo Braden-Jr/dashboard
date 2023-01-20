@@ -1,4 +1,4 @@
-@extends('form')
+@extends('form2')
 
 @section('contents')
 
@@ -7,7 +7,7 @@
 
         
     <main>
-        <h1 class="dash-title">Profile</h1>
+        <h1 class="dash-title">User Profile</h1>
            
                 <style>
                     .cascading-right {

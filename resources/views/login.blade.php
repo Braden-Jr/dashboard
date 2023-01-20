@@ -15,8 +15,9 @@
         <div class="row align-items-center justify-content-center">
           <div class="col-md-6">
             <div class="form-block">
-              <div class="text-center mb-5">
-              <h3>Welcome to <strong>ABSI IT-COE Dashboard</strong></h3>
+              <div class="text-center mb-5" >
+                <span><img src="{{asset('/ABSILOGO.png')}}" alt="Image" id="headerlogo" style="width: 200px"/></span> 
+              <h3 id="logintext">ABSI IT-COE Dashboard</h3>
               <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
               </div>
               <form method="post" action="/login">
@@ -24,18 +25,18 @@
                 <div class="form-group first">
                     <input type="text" id="typeEmailX"
                     name='employee_number'class="form-control form-control-lg" />
-                    <label class="form-label" for="typeEmailX">Employee Number</label>
+                    <label class="form-label" for="typeEmailX" id="logintext">Employee Number</label>
                 </div>
                 <div class="form-group last mb-3">
                 <input type="password" id="typePasswordX" name='password'
                     class="form-control form-control-lg" />
-                    <label class="form-label" for="typePasswordX">Password</label>
+                    <label class="form-label" for="typePasswordX" id="logintext">Password</label>
                 </div>
                 </label>
 
                  
 
-                <button class="btn btn-block btn-primary" type="submit">Login</button>
+                <button class="btn btn-block loginbtn" type="submit">Login</button>
                                     @if (session('status'))
                                         <div class="alert alert-success">
                                             {{ session('status') }}

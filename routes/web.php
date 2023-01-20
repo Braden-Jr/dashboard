@@ -182,3 +182,22 @@ Route::post('/login', [campaigncontroller::class , 'userLogin']);
 Route::get('/adminlogout', [campaigncontroller::class , 'adminLogout'])->name('adminlogout');
 
 
+
+
+// Reroutes (For Admin)
+
+
+Route::get('/', function () {
+    return view('login');
+});
+
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
+
+//User Routes
+
+Route::get('/userprofile', function () {
+    return view('userprofile');
+});

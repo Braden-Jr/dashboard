@@ -760,9 +760,10 @@ body {
         font-size: 14px; }
       
       .form-block {
-        background: #fff;
+        background: #171742;
+        border-radius: 20px;
         padding: 40px;
-        margin-top: -300px; }
+        }
         @media (max-width: 991.98px) {
           .form-block {
             padding: 25px; } }
@@ -860,4 +861,13 @@ body {
 
     #changepassbtn{
       background-color: #634AF2;
+    }
+
+    #logintext {
+      color: #E5E1E6;
+    }
+
+    .loginbtn {
+      background-color: #634AF2;
+      color: #E5E1E6;
     }

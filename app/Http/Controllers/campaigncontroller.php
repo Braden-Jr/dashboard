@@ -391,14 +391,8 @@ return back()->with("update successfully");
  
         $credential=[
           'employee_number' => $request->employee_number,
-          'password' => $request->password,
-          
+          'password' => $request->password, 
         ];
-        
-        
-            
-        
-
         
         $loginAttempt= Auth::attempt($credential);
         if( $loginAttempt){
@@ -412,7 +406,7 @@ return back()->with("update successfully");
          
          session()->save();
          if ($user->type == "admin") {
-            return redirect('/');
+            return redirect('/welcome');
           }
           elseif($user->type =="user"){
             $client= allProjects::paginate(10);

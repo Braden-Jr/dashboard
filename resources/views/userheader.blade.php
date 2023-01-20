@@ -40,7 +40,7 @@
           <div class="sidebar-header">
               <h3 class="brand">
   
-                  <span>ABSI </span>
+                <span><img src="{{asset('/ABSILOGO.png')}}" alt="Image" id="headerlogo" style="width: 145px"/></span>
               </h3> 
               <label for="sidebar-toggle" class="ti-menu-alt"></label>
           </div>
@@ -49,7 +49,7 @@
               <ul>
          
                 <li>
-                    <a href="profile">
+                    <a href="userprofile">
                         <span class="fa-solid fa-user" style="font-size: 15px;"></span>
                         <span>Profile</span>
                     </a>
