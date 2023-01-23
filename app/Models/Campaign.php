@@ -28,8 +28,4 @@ class Campaign extends Model
     
         return $campaign;
     }
-    public function users() {
-        $userCount = User::count();
-        return view('welcome', compact('userCount'));
-  }
 }
