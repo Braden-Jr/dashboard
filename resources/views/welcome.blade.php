@@ -27,7 +27,7 @@
                     <span class="ti-check-box"></span>
                     <div>
                         <h5>Total Number of Employees</h5>
-                        <h4 style=color:black>  {{ $userCount }}</h4>
+                        <h4 style=color:black> </h4>
                     </div>
                 </div>
               

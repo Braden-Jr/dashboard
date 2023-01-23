@@ -15,7 +15,6 @@ class campaigncontroller extends Controller
         $client= allProjects::paginate(10); 
         return view('projects',['data'=>$client]);
     }
-
     function allProjectsUser(){
         $client= allProjects::paginate(10); 
         return view('userdashboard',['data'=>$client]);
@@ -24,7 +23,7 @@ class campaigncontroller extends Controller
     // Display Admin Accounts
 
     function allAdmin(){
-        $client= User::where('type','admin')->paginate(5); 
+        $client= User::where('role_id','1')->paginate(5); 
         return view('adminaccounts',['data'=>$client]);
     }
 
@@ -140,7 +139,7 @@ class campaigncontroller extends Controller
     }
     function ITGISDP(){
         $client= Campaign::where('project_name','ITG - ISDP')->paginate(5); 
-        return view('ITG - ISDP',['data'=>$client]);
+        return view('ITG-ISDP',['data'=>$client]);
     }
 
     function ITGTECHM(){
@@ -293,13 +292,13 @@ return back()->with("update successfully");
     // Add Campaign //
 
     function addcampaign(Request $request){
-        if($request->name =="" || $request->employeenumber =="" ||$request->hiredate ==""||$request->contactnumber =="" ||$request->birthdate =="" ||$request->project =="" ||$request->designation =="" ||$request->tenure =="" ||$request->totalit =="" ||$request->status =="")
+        if($request->name_of_campaign =="" || $request->team_leader =="" ||$request->total_number_of_positions ==""||$request->number_of_personnel ==""||$request->status =="" )
         {
             return back()->with('status','Invalid empty fields.');
         }
         else{
             $status = 'Active';
-            $user = allprojects::create($request->campaign,$request->leader,$request->positions,$request->personnel,$status);
+            $user = allprojects::create($request->name_of_campaign,$request->team_leader,$request->total_number_of_positions,$request->number_of_personnel,$status);
             return back()->with('status','Campaign Added.');
         }
     }
@@ -340,36 +339,19 @@ return back()->with("update successfully");
 
 
 
-    //Add Employee//
-
-    function addemployee(Request $request){
-        if($request->name =="" || $request->employeenumber =="" ||$request->hiredate ==""||$request->contactnumber =="" ||$request->birthdate =="" ||$request->project =="" ||$request->designation =="" ||$request->tenure =="" ||$request->totalit =="" ||$request->status =="")
-        {
-            return back()->with('status','Invalid empty fields.');
-        }
-        else{
-            $status = 'Active';
-            $user = campaigns::create($request->name,$request->employeenumber,$request->hiredate,$request->contactnumber,$request->birthdate,$request->project,$request->desingnation,$request->tenure,$request->totalit,$status);
-            return back()->with('status','Campaign Added.');
-        }
-    }
-
-
-
-    // User Signup //
+    // Signup //
 
     function signup(Request $request){
-        if($request->employeenumber ==""){
-            return back()->with('status','Invalid Employee Number');
-         }
-         else{
+        // if($request->name ==""||$request->email =="" ||$request->password == ""){
+        //     return back()->with('status','Invalid empty fields.');
+        // }
+        // else{
             $client = '2';
             $status = 'Active';
-            $password = 'absi123';
-            $user = user::create($request->name,$request->employee_number,$password,$client,$status);
+            $user = user::create($request->name,$request->email,$request->password,$client,$status);
             return back()->with('status','Account Created.');
             
-        }
+        // }
     }   
 
     //Admin Signup
@@ -379,9 +361,9 @@ return back()->with("update successfully");
         //     return back()->with('status','Invalid empty fields.');
         // }
         // else{
-            $client = 'admin';
+            $client = '1';
             $status = 'Active';
-            $user = user::create($request->name,$request->employee_number,$request->password,$client,$status);
+            $user = user::create($request->name,$request->email,$request->password,$client,$status);
             return back()->with('status','Account Created.');
             
         // }
@@ -393,12 +375,12 @@ return back()->with("update successfully");
     function adminLogin(Request $request){ 
  
         $credential=[
-          'employee_number' => $request->employee_number,
+          'email' => $request->email,
           'password' => $request->password,
           'type' => $request->admin
         ];
         
-        $users = user::where('employee_number', $request->employee)->get();
+        $users = user::where('email', $request->email)->get();
             
         foreach($users as $useq){
           if ($useq->status == "Deleted"){
@@ -406,23 +388,23 @@ return back()->with("update successfully");
           }
     
           elseif($useq->type =="client"){
-            return back()->with('status',"This employee number is not an admin account");
+            return back()->with('status',"This email is not an admin account");
           }
           
         }
         $loginAttempt= Auth::attempt($credential);
         if( $loginAttempt){
           $request->session()->regenerate();
-          $user = user::firstWhere('employee_number', $request->employee_number);
+          $user = user::firstWhere('email', $request->email);
          session()->put('name', $user->name);
-         session()->put('employee_number', $user->employee_number);
+         session()->put('email', $user->email);
          session()->put('password', $user->password);
          session()->put('type', $user->type);
          session()->save();
         return redirect('/');
       }
     
-      elseif($request->employee_number == ""){
+      elseif($request->email == ""){
         return back()->with('status',"You need to input something");
       }
       else{
@@ -434,40 +416,51 @@ return back()->with("update successfully");
     function userLogin(Request $request){ 
  
         $credential=[
-          'employee_number' => $request->employee_number,
-          'password' => $request->password, 
+          'email' => $request->email,
+          'password' => $request->password,
+          'role_id' => $request->client
         ];
         
+        $users = user::where('email', $request->email)->get();
+            
+        foreach($users as $useq){
+          if ($useq->status == "Deleted"){
+            return back()->with('status',"Account has been deleted");
+          }
+    
+          elseif($useq->role_id =="2"){
+            $client= allProjects::paginate(10);
+            //return view('/userdashboard',['data'=>$client]);
+            return view('userdashboard',['data'=>$client]);
+          }
+          elseif($useq->role_id =="1"){
+            return view('/welcome');
+          }
+          
+          
+        }
         $loginAttempt= Auth::attempt($credential);
         if( $loginAttempt){
           $request->session()->regenerate();
-          $user = user::firstWhere('employee_number', $request->employee_number);
+          $user = user::firstWhere('email', $request->email);
          session()->put('name', $user->name);
-         session()->put('employee', $user->employee_number);
+         session()->put('email', $user->email);
          session()->put('password', $user->password);
-         session()->put('types', $user->type);
-         session()->put('ids', $user->id);
-         
+         session()->put('type', $user->type);
          session()->save();
-         if ($user->type == "admin") {
-            return redirect('/welcome');
-          }
-          elseif($user->type =="user"){
-            $client= allProjects::paginate(10);
-            return view('userdashboard',['data'=>$client]);
-
-          }
-        
+        return redirect('/userdashboard');
       }
-
-      
-      elseif($request->employee_number == ""){
+    
+      elseif($request->email == ""){
         return back()->with('status',"You need to input something");
       }
       else{
           return back()->with('status',"incorrect username or password");
       }
     }
+
+
+
 }
 
 

@@ -87,13 +87,13 @@
                   <div class="row">
                     <div class="col-md-12">
                     <div class="form-outline mb-4">
-                      <input type="text" name='campaign'id="form3Example1" class="form-control" />
+                      <input type="text" name='name_of_campaign'id="form3Example1" class="form-control" />
                       <label class="form-label" for="form3Example1">Name of Campaign</label>
                     </div>
                     </div>
                     <div class="col-md-12">
                     <div class="form-outline mb-4">
-                      <input type="text" name='leader' id="form3Example2" class="form-control" />
+                      <input type="text" name='team_leader' id="form3Example2" class="form-control" />
                       <label class="form-label" for="form3Example2">Team Leader</label>
                     </div>
                     </div>
@@ -101,14 +101,19 @@
             
                   <!-- Email input -->
                   <div class="form-outline mb-4">
-                    <input type="text" name='positions' id="form3Example3" class="form-control" />
+                    <input type="text" name='total_number_of_positions' id="form3Example3" class="form-control" />
                     <label class="form-label" for="form3Example3">Total Number of Positions</label>
                   </div>
             
                   <div class="form-outline mb-4">
-                    <input type="text" name='personnel' id="form3Example4" class="form-control" />
+                    <input type="text" name='number_of_personnel' id="form3Example4" class="form-control" />
                     <label class="form-label" for="form3Example3">Number of Personnel</label>
                     </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="text" name='status' id="form3Example4" class="form-control" hidden/>
+                      <label class="form-label" for="form3Example3" hidden>Status</label>
+                      </div>
 
                   <button type="submit" class="btn btn-primary btn-block mb-4">
                     Add Campaign
