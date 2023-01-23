@@ -1,4 +1,4 @@
-@extends('form')
+@extends('form2')
 @section('contents')
 <div class="main-content">
     <main>
@@ -32,21 +32,11 @@
             @foreach ($data as $datas )
                 
                             <tr>
-                                <td class="DATA"><a href="{{$datas->name_of_campaign}}"> {{$datas->name_of_campaign}} </a> </td>  
+                                <td class="DATA"><a href="{{$datas->name_of_campaign}}USER"> {{$datas->name_of_campaign}} </a> </td>  
                                 <td class="DATA">{{ $datas->team_leader}}</td>
                                 <td class="DATA">{{ $datas->total_number_of_positions}}</td>
                                 <td class="DATA">{{ $datas->number_of_personnel}}</td>
                                 <td class="DATA">{{ $datas->status}}</td>
-                                
-                                <td>
-
-                                   <a href="#editclient{{ $datas->id }}" class="btn btn-success" data-bs-toggle="modal"><i class="fa fa-edit">
-                                </i> Edit</a>
-                                <a href="#deleteClient{{ $datas->id }}" class="btn btn-danger" data-bs-toggle="modal"><i class="fa-solid fa-trash"></i>
-                                   Delete</a>
-                                   @include('modal')
-                                  
-                                </td>
                             </tr>
 
                                 @endforeach
@@ -81,7 +71,7 @@
                   ">
                 <div class="card-body p-5 shadow-5 text-center" id="addcampaign">
               
-                  <form method="POST" action="/projects">
+                  <form method="POST" action="/projectsuser">
                   @csrf
                   <!-- 2 column grid layout with text inputs for the first and last names -->
                   <div class="row">

@@ -98,6 +98,11 @@
                     <label class="form-label" for="form3Example3">Number of Personnel</label>
                     </div>
 
+                    <div class="form-outline mb-4">
+                      <input type="text" name='status' id="form3Example4" class="form-control" />
+                      <label class="form-label" for="form3Example3">Status</label>
+                      </div>
+
                   @if(session('status'))
                   <div class="alert alert-success">
                     {{ session('status') }}

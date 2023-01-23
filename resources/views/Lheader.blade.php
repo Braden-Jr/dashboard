@@ -40,7 +40,8 @@
           <div class="sidebar-header">
               <h3 class="brand">
   
-                  <span>ABSI </span>
+                  <span><img src="{{asset('/ABSILOGO.png')}}" alt="Image" id="headerlogo" style="width: 145px"/></span>
+                  
               </h3> 
               <label for="sidebar-toggle" class="ti-menu-alt"></label>
           </div>
@@ -91,7 +92,7 @@
                 </li>
 
                   <li>
-                      <a href="../adminlogout">
+                      <a href="/adminlogout">
                           <i class="fa-solid fa-right-from-bracket" style="font-size: 15px;"></i>
                           <span>Log Out</span>
                       </a>

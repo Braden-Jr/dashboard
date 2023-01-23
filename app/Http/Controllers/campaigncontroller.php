@@ -19,10 +19,14 @@ class campaigncontroller extends Controller
         $client= allProjects::paginate(10); 
         return view('userdashboard',['data'=>$client]);
     }
+
+    // Display Admin Accounts
+
     function allAdmin(){
         $client= User::where('role_id','1')->paginate(5); 
         return view('adminaccounts',['data'=>$client]);
     }
+
     function allITG_UB_delivery(){
         $client= Campaign::where('project_name','ITG - UNIONBANK Delivery Lead Gerand Elinzano')->paginate(20); 
         return view('ITG-UNION BANK DELIVERY',['data'=>$client]);
@@ -92,6 +96,7 @@ class campaigncontroller extends Controller
         $client= Campaign::where('project_name','ITG - AMICASSA IT Support')->paginate(5); 
         return view('ITG-AMICASSA IT SUPPORT',['data'=>$client]);
     }
+   
 
     function ITGEITSCSF(){
         $client= Campaign::where('project_name','ITG - EITSC SF')->paginate(5); 
@@ -103,10 +108,6 @@ class campaigncontroller extends Controller
         return view('ITG-EIG QA',['data'=>$client]);
     }
 
-    function ITGALPHAMAX(){
-        $client= Campaign::where('project_name','ITG - ALPHAMAX')->paginate(5); 
-        return view('ITG-ALPHAMAX',['data'=>$client]);
-    }
 
     function ITGITNTG(){
         $client= Campaign::where('project_name','ITG - IT NTG')->paginate(5); 
@@ -128,16 +129,23 @@ class campaigncontroller extends Controller
         return view('ITG-LOTG GU',['data'=>$client]);
     }
 
+    function ITGALPHAMAX(){
+        $client= Campaign::where('project_name','ITG - ALPHAMAX')->paginate(5); 
+        return view('ITG-ALPHAMAX',['data'=>$client]);
+    }
     function ITGARES(){
         $client= Campaign::where('project_name','ITG - ARES')->paginate(5); 
-        return view('ITG ARES',['data'=>$client]);
+        return view('ITG-ARES',['data'=>$client]);
+    }
+    function ITGISDP(){
+        $client= Campaign::where('project_name','ITG - ISDP')->paginate(5); 
+        return view('ITG - ISDP',['data'=>$client]);
     }
 
     function ITGTECHM(){
         $client= Campaign::where('project_name','ITG - TECHM')->paginate(5); 
         return view('ITG-TECHM',['data'=>$client]);
     }
-
 
     function ITGGLOBESTSAUTOMOTION(){
         $client= Campaign::where('project_name','ITG-GLOBE STS AUTOMOTION')->paginate(5); 
@@ -214,6 +222,16 @@ class campaigncontroller extends Controller
         return view('ITG - GoCloud presales',['data'=>$client]);
     }
 
+    //show birthdays
+function birthdays(){
+
+    $date=now();
+
+        Campaign::whereMonth('birthdate', Carbon::now()->format('m'))
+        ->whereDay('birthdate', Carbon::now()->format('d'))
+        ->get();
+}
+
     // Update Campaign//
 
     function updateClient(Request $request){
@@ -232,6 +250,20 @@ class campaigncontroller extends Controller
     return back()->with("update successfully");
    }
 }
+
+//update password
+
+function updatepassword(Request $request){
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+    $user = User::find($request->password);
+
+$client->save();
+
+return back()->with("update successfully");
+
+}
+
+
 
       // Update Employee//
 
@@ -260,12 +292,13 @@ return back()->with("update successfully");
     // Add Campaign //
 
     function addcampaign(Request $request){
-        if($request->campaign =="" || $request->leader =="" ||$request->positions ==""||$request->personnel =="")
+        if($request->name =="" || $request->employeenumber =="" ||$request->hiredate ==""||$request->contactnumber =="" ||$request->birthdate =="" ||$request->project =="" ||$request->designation =="" ||$request->tenure =="" ||$request->totalit =="" ||$request->status =="")
         {
             return back()->with('status','Invalid empty fields.');
         }
         else{
-            $user = allprojects::create($request->campaign,$request->leader,$request->positions,$request->personnel);
+            $status = 'Active';
+            $user = allprojects::create($request->campaign,$request->leader,$request->positions,$request->personnel,$status);
             return back()->with('status','Campaign Added.');
         }
     }
@@ -288,6 +321,22 @@ return back()->with("update successfully");
     return back()->with("failed");
    }
     }
+
+
+    //Add Employee//
+
+    function addemployee(Request $request){
+        if($request->campaign =="" || $request->leader =="" ||$request->positions ==""||$request->personnel =="")
+        {
+            return back()->with('status','Invalid empty fields.');
+        }
+        else{
+            $status = 'Active';
+            $user = allprojects::create($request->campaign,$request->leader,$request->positions,$request->personnel,$status);
+            return back()->with('status','Campaign Added.');
+        }
+    }
+
 
 
     // Signup //
@@ -409,6 +458,13 @@ return back()->with("update successfully");
           return back()->with('status',"incorrect username or password");
       }
     }
+
+    //counts
+     function users() {
+        $userCount = campaigns::count();
+        return view('welcome', compact('userCount'));
+  }
+
 }
 
 

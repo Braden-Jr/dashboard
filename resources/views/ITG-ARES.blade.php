@@ -9,7 +9,7 @@
     }
 </style>
 
-<h1>ITG - UNION BANK DOLE PROJECT & EON PROJECT</h1>
+<h1>ITG - ARES</h1>
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="padding-left: 70px">
     <li class="nav-item" role="presentation">
@@ -92,7 +92,7 @@
       ">
     <div class="card-body p-5 shadow-5 text-center" id="addcampaign">
   
-      <form method="POST" action="/ITG%20-%20ALPHAMAX">
+      <form method="POST" action="/ITG-ARES">
       @csrf
       <!-- 2 column grid layout with text inputs for the first and last names -->
       <div class="row">

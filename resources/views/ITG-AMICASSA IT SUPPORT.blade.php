@@ -92,7 +92,7 @@
       ">
     <div class="card-body p-5 shadow-5 text-center" id="addcampaign">
   
-      <form method="POST" action="/ITG-ALPHAMAX">
+      <form method="POST" action="/ITG-AMICASSAITSUPPORT">
       @csrf
       <!-- 2 column grid layout with text inputs for the first and last names -->
       <div class="row">

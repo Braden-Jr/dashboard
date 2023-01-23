@@ -20,14 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/absilogin', function () {
-    return view('login');
-});
+Route::view('/absilogin', 'login');
 
-
-Route::get('/profile', function () {
-    return view('profile');
-});
+Route::view('/profile', 'profile');
 
 Route::get('/projects', function () {
     return view('projects');
@@ -37,87 +32,92 @@ Route::get('/adminaccounts', function () {
     return view('adminaccounts');
 });
 
+
 /* User Routes */
 
 Route::get('/userwelcome', function () {
     return view('userwelcome');
 });
 
+Route::get('/adminaccounts',[campaigncontroller::class , 'allAdmin']);
+
 Route::get('/userdashboard',[campaigncontroller::class , 'allProjectsUser']);
+
+Route::get('/projects',[campaigncontroller::class , 'allProjectsUser']);
 
 Route::get('/campaign',[campaigncontroller::class , 'allITG_UB_delivery']);
 
 Route::get('/projects',[campaigncontroller::class , 'allProjects']);
 
-Route::get('/adminaccounts',[campaigncontroller::class , 'allAdmin']);
-
 /* CAMPAIGNS */
 
-Route::get('/ITG-UNION BANK DELIVERY',[campaigncontroller::class , 'allITG_UB_delivery']);
+Route::get('/ITG - UNIONBANK Delivery Lead Gerand Elinzano',[campaigncontroller::class , 'allITG_UB_delivery']);
 
-Route::get('/ITG - NTG (DCO-FW)',[campaigncontroller::class , 'allITG_NTG_DCO_FW']);
+Route::get('/ITG - NTG (DCO-FW-NETWORK)',[campaigncontroller::class , 'allITG_NTG_DCO_FW']);
 
-Route::get('/ITG-UNION BANK PROJECT ALPHA',[campaigncontroller::class , 'ITGUNIONBANKPROJECTALPHA']);
+Route::get('/ITG - UNIONBANK Project Alpha',[campaigncontroller::class , 'ITGUNIONBANKPROJECTALPHA']);
 
-Route::get('/ITG-NTG OSS',[campaigncontroller::class , 'ITGNTGOSS']);
+Route::get('/ITG - NTG OSS',[campaigncontroller::class , 'ITGNTGOSS']);
 
-Route::get('/ITG-UNION BANK THE PORTAL',[campaigncontroller::class , 'ITGUNIONBANKTHEPORTAL']);
+Route::get('/ITG - UNIONBANK The Portal',[campaigncontroller::class , 'ITGUNIONBANKTHEPORTAL']);
 
-Route::get('/ITG-UNION BANK CUSTOMER VERIFICATION PLATFORM',[campaigncontroller::class , 'ITGUNIONBANKCUSTOMERVERIFICATIONPLATFORM']);
+Route::get('/ITG - UNIONBANK Customer Verification Platform (CVP)',[campaigncontroller::class , 'ITGUNIONBANKCUSTOMERVERIFICATIONPLATFORM']);
 
-Route::get('/ITG-UNION BANK DOLE PROJECT & EON PROJECT',[campaigncontroller::class , 'ITGUNIONBANKDOLEPROJECTEONPROJECT']);
+Route::get('/ITG - UNIONBANK Dole Project & EON Project',[campaigncontroller::class , 'ITGUNIONBANKDOLEPROJECTEONPROJECT']);
 
 Route::get('/ITG-GLOBE STS AUTOMATION',[campaigncontroller::class , 'ITGGLOBESTSAUTOMATION']);
 
-Route::get('/ITG-SMD TASK AUTOMATION',[campaigncontroller::class , 'ITGSMDTASKAUTOMATION']);
+Route::get('/ITG - SMD TASK AUTOMATION',[campaigncontroller::class , 'ITGSMDTASKAUTOMATION']);
 
-Route::get('/ITG-EDO SM',[campaigncontroller::class , 'ITGEDOSM']);
+Route::get('/ITG - EDO SM',[campaigncontroller::class , 'ITGEDOSM']);
 
-Route::get('/ITG-UNION BANK BAYANIHAN BONDS PH',[campaigncontroller::class , 'ITGUNIONBANKBAYANIHANBONDSPH']);
+Route::get('/ITG - UNIONBANK Bayanihan Bonds PH',[campaigncontroller::class , 'ITGUNIONBANKBAYANIHANBONDSPH']);
 
-Route::get('/ITG-OSS SERVICE FULFILLMENT',[campaigncontroller::class , 'ITGOSSSERVICEFULFILLMENT']);
+Route::get('/ITG - OSS SERVICE FULFILLMENT',[campaigncontroller::class , 'ITGOSSSERVICEFULFILLMENT']);
 
-Route::get('/ITG-EITSC SD',[campaigncontroller::class , 'ITGEITSCSD']);
+Route::get('/ITG - EITSC SD ',[campaigncontroller::class , 'ITGEITSCSD']);
 
 Route::get('/ITG - AMICASSA IT Support',[campaigncontroller::class , 'ITGAMICASSAITSUPPORT']);
 
-Route::get('/ITG-EITSC SF',[campaigncontroller::class , 'ITGEITSCSF']);
+Route::get('/ITG - EITSC SF ',[campaigncontroller::class , 'ITGEITSCSF']);
 
-Route::get('/ITG-EIG QA',[campaigncontroller::class , 'ITGEIGQA']);
+Route::get('/ITG - EIG QA',[campaigncontroller::class , 'ITGEIGQA']);
 
 Route::get('/ITG - ALPHAMAX',[campaigncontroller::class , 'ITGALPHAMAX']);
 
-Route::get('/ITG-IT NTG',[campaigncontroller::class , 'ITGITNTG']);
+Route::get('/ITG - IT NTG',[campaigncontroller::class , 'ITGITNTG']);
 
-Route::get('/ITG-EDO SIMP',[campaigncontroller::class , 'ITGEDOSIMP']);
+Route::get('/ITG - EDO SIMP',[campaigncontroller::class , 'ITGEDOSIMP']);
 
-Route::get('/ITG-LAS',[campaigncontroller::class , 'ITGLAS']);
+Route::get('/ITG - LAS',[campaigncontroller::class , 'ITGLAS']);
 
 Route::get('/ITG-LOTG GU',[campaigncontroller::class , 'ITGLOTGGU']);
 
-Route::get('/ITG ARES',[campaigncontroller::class , 'ITGARES']);
+Route::get('/ITG - ARES',[campaigncontroller::class , 'ITGARES']);
 
 Route::get('/ITG-TECHM',[campaigncontroller::class , 'ITGTECHM']);
 
-Route::get('/ITG-GLOBE STS AUTOMOTION',[campaigncontroller::class , 'ITGGLOBESTSAUTOMOTION']);
+Route::get('/ITG - ISDP',[campaigncontroller::class , 'ITGISDP']);
 
-Route::get('/ITG - PROJECT MANAGEMENT SERVICES - GENERAL TRIAS/CITADEL',[campaigncontroller::class , 'ITGPROJECTMANAGEMENTSERVICESGENERALTRIASCITADEL']);
+Route::get('/ITG - GLOBE STS AUTOMATION',[campaigncontroller::class , 'ITGGLOBESTSAUTOMOTION']);
 
-Route::get('/ITG-PGPD DEVOPS',[campaigncontroller::class , 'ITGPGPDDEVOPS']);
+Route::get('/ITG - PROJECT MANAGEMENT SERVICES-GENERAL TRIAS/CITADEL',[campaigncontroller::class , 'ITGPROJECTMANAGEMENTSERVICESGENERALTRIASCITADEL']);
+
+Route::get('/ITG - PGPD DEVOPS',[campaigncontroller::class , 'ITGPGPDDEVOPS']);
 
 Route::get('/ITG-SDN NFV',[campaigncontroller::class , 'ITGSDNNFV']);
 
 Route::get('/ITG - PGPD ENG SUPPORT',[campaigncontroller::class , 'ITGPGPDENGSUPPORT']);
 
-Route::get('/ITG-PGPD DASH AND PROGRAM GOVERNANCE',[campaigncontroller::class , 'ITGPGPDDASHANDPROGRAMGOVERNANCE']);
+Route::get('/ITG - PGPD DASH AND PROGRAM GOVERNANCE',[campaigncontroller::class , 'ITGPGPDDASHANDPROGRAMGOVERNANCE']);
 
-Route::get('/ITG-PROGRAM GOVERNANCE AND IT SUPPORT',[campaigncontroller::class , 'ITGPROGRAMGOVERNANCEANDITSUPPORT']);
+Route::get('/ITG - PROGRAM GOVERNANCE AND IT SUPPORT',[campaigncontroller::class , 'ITGPROGRAMGOVERNANCEANDITSUPPORT']);
 
 Route::get('/ITG - STRAT AND CULTURE MANAGEMENT',[campaigncontroller::class , 'ITGSTRATANDCULTUREMANAGEMENT']);
 
 Route::get('/ITG - DIGITAL GROWTH MARKETING',[campaigncontroller::class , 'ITGDIGITALGROWTHMARKETING']);
 
-Route::get('/ITG-OSS SF PMs',[campaigncontroller::class , 'ITGOSSSFPMs']);
+Route::get('/ITG - OSS SF PMs',[campaigncontroller::class , 'ITGOSSSFPMs']);
 
 Route::get('/ITG-FA',[campaigncontroller::class , 'ITGFA']);
 
@@ -127,7 +127,9 @@ Route::get('/ITG NPS ANALYSIS AUTOMATION',[campaigncontroller::class , 'ITGNPSAN
 
 Route::get('/ITG - IT BAR DEVICES SUPPORT OPERATIONS MS',[campaigncontroller::class , 'ITGITBARDEVICESSUPPORTOPERATIONSMS']);
 
-Route::get('/ITG - GoCloud presales',[campaigncontroller::class , 'ITGGoCloudpresales']);
+Route::get('ITG - GoCloud presales',[campaigncontroller::class , 'ITGGoCloudpresales']);
+Route::get('/birthdays',[campaigncontroller::class , 'birthdays']);
+Route::get('/users',[campaigncontroller::class , 'users']);
 
 Route::get('/overtime', function () {
     return view('overtime');
@@ -153,10 +155,15 @@ Route::post('/updateclient ', [campaigncontroller::class , 'updateClient']);
 
 Route::post('/projects', [campaigncontroller::class , 'addcampaign']);
 
+Route::post('/ITG-ALPHAMAX', [campaigncontroller::class , 'addemployee']);
+
 Route::post('/deleteclient ', [campaigncontroller::class , 'deletecampaign']);
-/*second CRUD */
+
+/*Second CRUD */
 Route::post('/editEmployee ', [campaigncontroller::class , 'updateEmployee']);
-/* Route::post('/deleteEmployee ', [campaigncontroller::class , 'deletecampaign']); */
+
+//* Client Signup 
+
 Route::get('/signup', function () {
     return view('signup');
 });
@@ -169,7 +176,32 @@ Route::get('/login', function () {
 });
 
 Route::post('/signup', [campaigncontroller::class , 'signup']);
+
 Route::post('/adminsignup', [campaigncontroller::class , 'adminsignup']);
+
 Route::post('/login', [campaigncontroller::class , 'userLogin']);
 
+//Logout
 
+Route::get('/adminlogout', [campaigncontroller::class , 'adminLogout'])->name('adminlogout');
+
+
+
+
+// Reroutes (For Admin)
+
+
+Route::get('/', function () {
+    return view('login');
+});
+
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
+
+//User Routes
+
+Route::get('/userprofile', function () {
+    return view('userprofile');
+});

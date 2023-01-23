@@ -12,13 +12,13 @@ class user extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    public static function create($name,$email,$password,$type,$status){
+    public static function create($name,$employee_number,$password,$type,$status){
         $user = new user();
     
         $user->name=$name;
-        $user->email=$email;    
+        $user->employee_number=$employee_number;    
         $user->password=Hash::make($password);
-        $user->role_id=$type;
+        $user->type=$type;
         $user->status=$status;   
         $user->save();
     
@@ -26,14 +26,11 @@ class user extends Authenticatable
     }
     protected $fillable = [
         'name',
-        'email',
-        'role_id',
+        'employee_number',
+        'type',
         'password',
         'status',
     ];
 
-    public function role(): BelongsTo
-    {
-        return $this->belongsTo(Roles::class);
-    }
+    
 }

@@ -28,7 +28,7 @@
                     <thead style="background-color: #90ccbc;">
                       <tr>
                         <th style="text-align: center">Name</th>
-                        <th style="text-align: center">Email</th>
+                        <th style="text-align: center">Employee Number</th>
                         <th style="text-align: center">Status</th>
                         <th></th>
                         <th style="text-align: center">Action</th>
@@ -39,7 +39,7 @@
                 
             <tr>
                 <td class="DATA"><a href="{{$datas->name}}"> {{$datas->name}} </a> </td>  
-                <td class="DATA">{{ $datas->email}}</td>
+                <td class="DATA">{{ $datas->employee_number}}</td>
                 <td class="DATA">{{ $datas->status}}</td>
                 <td class="DATA">{{ $datas->action}}</td>
                                 
@@ -94,8 +94,8 @@
                     </div>
                     <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="email" name='email' id="form3Example3" class="form-control" />
-                      <label class="form-label" for="form3Example2">Email</label>
+                      <input type="text" name='employee_number' id="form3Example3" class="form-control" />
+                      <label class="form-label" for="form3Example2">Employee Number</label>
                     </div>
                     </div>
                   </div>

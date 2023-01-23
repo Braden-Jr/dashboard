@@ -9,7 +9,7 @@
     }
 </style>
 
-<h1>ITG - UNION BANK DOLE PROJECT & EON PROJECT</h1>
+<h1>ITG - ISDP</h1>
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="padding-left: 70px">
     <li class="nav-item" role="presentation">
