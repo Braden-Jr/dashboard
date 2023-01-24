@@ -14,7 +14,7 @@
         <h1 class="dash-title">Accounts</h1>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true"> Admin Accounts</button>
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">User Accounts</button>
             </li>
          
             <li class="nav-item" role="presentation">
@@ -84,7 +84,7 @@
                   ">
                 <div class="card-body p-5 shadow-5 text-center">
               
-                  <form method="POST" action="/adminsignup">
+                  <form method="POST" action="/usersignup">
                   @csrf
                   <!-- Name Input-->
                   <div class="row">

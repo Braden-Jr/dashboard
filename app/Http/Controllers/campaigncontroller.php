@@ -23,8 +23,12 @@ class campaigncontroller extends Controller
     // Display Admin Accounts
 
     function allAdmin(){
-        $client= User::where('role_id','1')->paginate(5); 
+        $client= User::where('type','admin')->paginate(5); 
         return view('adminaccounts',['data'=>$client]);
+    }
+    function allUser(){
+        $client= User::where('type','user')->paginate(5); 
+        return view('useraccounts',['data'=>$client]);
     }
 
     function allITG_UB_delivery(){
@@ -361,13 +365,25 @@ return back()->with("update successfully");
         //     return back()->with('status','Invalid empty fields.');
         // }
         // else{
-            $client = '1';
+            $client = 'admin';
             $status = 'Active';
-            $user = user::create($request->name,$request->email,$request->password,$client,$status);
+            $user = user::create($request->name,$request->employee_number,$request->password,$client,$status,$request->type);
             return back()->with('status','Account Created.');
             
         // }
     }   
+    function usersignup(Request $request){
+        // if($request->name ==""||$request->email =="" ||$request->password == ""){
+        //     return back()->with('status','Invalid empty fields.');
+        // }
+        // else{
+            $client = 'user';
+            $status = 'Active';
+            $user = user::create($request->name,$request->employee_number,$request->password,$client,$status,$request->type);
+            return back()->with('status','Account Created.');
+            
+        // }
+    }  
 
 
     //adminlogin
@@ -459,7 +475,29 @@ return back()->with("update successfully");
       }
     }
 
+//change
+ function updatePasswords(Request $request)
+{
+        # Validation
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
 
+
+        #Match The Old Password
+        if(!Hash::check($request->old_password, auth()->user()->password)){
+            return back()->with("error", "Old Password Doesn't match!");
+        }
+
+
+        #Update the new Password
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return back()->with("status", "Password changed successfully!");
+}
 
 }
 

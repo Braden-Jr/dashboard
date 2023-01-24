@@ -31,7 +31,9 @@ Route::get('/projects', function () {
 Route::get('/adminaccounts', function () {
     return view('adminaccounts');
 });
-
+Route::get('/useraccounts', function () {
+    return view('useraccounts');
+});
 
 /* User Routes */
 
@@ -40,6 +42,8 @@ Route::get('/userwelcome', function () {
 });
 
 Route::get('/adminaccounts',[campaigncontroller::class , 'allAdmin']);
+
+Route::get('/useraccounts',[campaigncontroller::class , 'allUser']);
 
 Route::get('/userdashboard',[campaigncontroller::class , 'allProjectsUser']);
 
@@ -178,6 +182,7 @@ Route::get('/login', function () {
 Route::post('/signup', [campaigncontroller::class , 'signup']);
 
 Route::post('/adminsignup', [campaigncontroller::class , 'adminsignup']);
+Route::post('/usersignup', [campaigncontroller::class , 'usersignup']);
 
 Route::post('/login', [campaigncontroller::class , 'userLogin']);
 
@@ -205,3 +210,6 @@ Route::get('/welcome', function () {
 Route::get('/userprofile', function () {
     return view('userprofile');
 });
+
+//change
+Route::post('/change-password', [App\Http\Controllers\HomeController::class, 'updatePasswords'])->name('update-password');

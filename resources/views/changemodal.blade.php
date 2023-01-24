@@ -16,8 +16,16 @@
                          style="background-color:white;color:black;border:2px solid #171742;font-size: 20px; "
                           value="" 
                           name="name" />
-                        <label class="form-label DATA" for="typeEmailX"> Change Password</label>
+                        <label class="form-label DATA" for="typeEmailX"> Old Password</label>
                     </div>
+                    <div class="form-outline form-white mb-4" >
+                      <input type="text"
+                       class="form-control form-control-sm" 
+                       style="background-color:white;color:black;border:2px solid #171742;font-size: 20px; "
+                        value="" 
+                        name="name" />
+                      <label class="form-label DATA" for="typeEmailX"> New Password</label>
+                  </div>
                     <button class="btn btn-outline-dark" type="submit"><i class="fa fa-edit"></i> Save</button>
                 </div>
             </form>
