@@ -1,7 +1,11 @@
 @extends('form2')
 
 @section('contents')
-
+@php
+use App\Models\allProjects;
+use App\Models\Employee;
+use App\Models\Campaign;
+@endphp
 
 <div class="main-content">
 
@@ -20,27 +24,56 @@
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"> <div class="activity-card">
             
                 <table class="table table-striped" style="margin-top:20px;">
-                    <thead style="background-color: #171742;">
-                      <tr>
-                        <th style="text-align: center">Name of Campaign</th>
-                        <th style="text-align: center">Team Leader</th>
-                        <th style="text-align: center">Total Number of Positions</th>
-                        <th style="text-align: center">Number of Personnel</th>
-                        <th style="text-align: center">Status</th>
-                      </tr>
-                    </thead>
-           <tbody>
-                            
-            @foreach ($data as $datas )
-                            <tr>
-                                <td class="DATA"><a href="{{$datas->name_of_campaign}}"> {{$datas->name_of_campaign}} </a> </td>  
-                                <td class="DATA">{{ $datas->team_leader}}</td>
-                                <td class="DATA">{{ $datas->total_number_of_positions}}</td>
-                                <td class="DATA">{{ $datas->number_of_personnel}}</td>
-                                <td class="DATA">{{ $datas->status}}</td>
-                            </tr>
-            @endforeach
-                        </tbody>
+                  <thead style="background-color: #171742;">
+                    <tr>
+                      <th style="text-align: center">Name of Campaign</th>
+                      <th style="text-align: center">Team Leader</th>
+                      <th style="text-align: center">Total Number of Positions</th>
+
+                      <th style="text-align: center">Status</th>
+                      
+                      @if(Auth::check())
+                      @if( session('type') == "admin" )
+                      <th style="text-align: center">Action</th>
+
+                    @endif
+                    
+                    </tr>
+
+                  </thead>
+         <tbody>
+                          
+          @foreach ($data as $datas )
+                          <tr>
+                              <td class="DATA"> <form action="campaignall">
+                                <input type="text" name="id" value="{{ $datas->id }}" hidden>
+                                <input type="submit" value="{{$datas->project_name}}">
+                            </form></td>  
+                              <td class="DATA">{{ $datas->team_leader}}</td>
+                       
+                   
+                              @php
+                              $products = Campaign::where('project_id', $datas->id)->count();
+                          @endphp 
+                          <td class="DATA">{{ $products}}</td>
+                          <td class="DATA">{{ $datas->project_status}}</td>
+                              @if( session('type') == "admin" )
+                              <td>
+
+                                <a href="#editclient{{ $datas->id }}" class="btn btn-success" data-bs-toggle="modal"><i class="fa fa-edit">
+                             </i> Edit</a>
+                             <a href="#deleteClient{{ $datas->id }}" class="btn btn-danger" data-bs-toggle="modal"><i class="fa-solid fa-trash"></i>
+                                Delete</a>
+                                @include('modal')
+                               
+                             </td>
+                             @endif
+                          </tr>
+          @endforeach
+          @endif
+                      </tbody>
+
+
                         
                   </table>
                   <div class="row" style="padding-left:20px;border-radius:20px;display:flex;justify-content:center;margin-top:50px;">{{ $data->links() }}</div>

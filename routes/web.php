@@ -180,15 +180,16 @@ Route::get('/login', function () {
 });
 
 Route::post('/signup', [campaigncontroller::class , 'signup']);
-
+Route::post('/change', [campaigncontroller::class , 'changePass']);
 Route::post('/adminsignup', [campaigncontroller::class , 'adminsignup']);
 Route::post('/usersignup', [campaigncontroller::class , 'usersignup']);
 
 Route::post('/login', [campaigncontroller::class , 'userLogin']);
 
 //Logout
+Route::get('/campaignall', [campaigncontroller::class , 'campaignAll']);
 
-Route::get('/adminlogout', [campaigncontroller::class , 'adminLogout'])->name('adminlogout');
+Route::get('/adminLogout', [campaigncontroller::class , 'getLogOut'])->name('adminlogout');
 
 
 
@@ -212,4 +213,4 @@ Route::get('/userprofile', function () {
 });
 
 //change
-Route::post('/change-password', [App\Http\Controllers\HomeController::class, 'updatePasswords'])->name('update-password');
+

@@ -17,7 +17,7 @@
             <div class="form-block">
               <div class="text-center mb-5" >
                 <span><img src="{{asset('/ABSILOGO.png')}}" alt="Image" id="headerlogo" style="width: 200px"/></span> 
-              <h3 id="logintext">ABSI IT-COE Dashboard</h3>
+              <h3 id="logintext">IT-COE Dashboard</h3>
               <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
               </div>
               <form method="post" action="/login">

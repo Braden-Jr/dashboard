@@ -7,26 +7,38 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
         </div>
         <div class="modal-body">
-            <form method="post" action="/updateclient">
+            <form method="POST" action="/change">
                 @csrf
-                <div class="mb-md-5 mt-md-4 pb-5"   >
-                    <div class="form-outline form-white mb-4" >
-                        <input type="text"
-                         class="form-control form-control-sm" 
-                         style="background-color:white;color:black;border:2px solid #171742;font-size: 20px; "
-                          value="" 
-                          name="name" />
-                        <label class="form-label DATA" for="typeEmailX"> Old Password</label>
-                    </div>
-                    <div class="form-outline form-white mb-4" >
-                      <input type="text"
-                       class="form-control form-control-sm" 
-                       style="background-color:white;color:black;border:2px solid #171742;font-size: 20px; "
-                        value="" 
-                        name="name" />
-                      <label class="form-label DATA" for="typeEmailX"> New Password</label>
+                <div class="mb-md-5 mt-md-4 pb-5">
+              
+                  <div class="alert alert-danger" role="alert">
+                     
                   </div>
+              
+                  <div class="form-outline form-white mb4">
+                    <label for="newPasswordInput" class="form-label">Old Password</label>
+                    <input name="old" type="text" class="form-control" id="oldPasswordInput"
+                        placeholder="Old Password">
+
+                </div>
+                    <div class="form-outline form-white mb4">
+                      <label for="newPasswordInput" class="form-label">New Password</label>
+                      <input name="new" type="text" class="form-control" id="newPasswordInput"
+                          placeholder="New Password">
+
+                  </div>
+                  <div class="mb-3">
+                    
+                      <label for="confirmNewPasswordInput" class="form-label">Confirm New Password</label>
+                      <input name="confirm" type="text" class="form-control" id="confirmNewPasswordInput"
+                          placeholder="Confirm New Password">
+
+                          <input type="text" name="uid" value="{{ session('ids') }}" >
+                  </div>
+
+              </div>
                     <button class="btn btn-outline-dark" type="submit"><i class="fa fa-edit"></i> Save</button>
+
                 </div>
             </form>
         </div>

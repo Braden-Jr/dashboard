@@ -81,13 +81,6 @@
                     </a>
 
                 </li>
-                <li>
-                    <a href="useraccounts">
-                        <span class="ti-id-badge" style="font-size: 15px;"></span>
-                        <span>User Accounts</span>
-                    </a>
-
-                </li>
 
                 <li>
                     <a href="../faq">

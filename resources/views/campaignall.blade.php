@@ -1,14 +1,24 @@
 @extends('form2')
 @section('contents')
 @section('contents')
-
+@php
+use App\Models\allProjects;
+use App\Models\Employee;
+use App\Models\Roles;
+use App\Models\Campaign;
+@endphp
 <style>
     h1{
         text-align: center;
     }
 </style>
+@foreach ($data as $datas)
+@php
+$products = allProjects::find($datas->project_id);
 
-<h1>ITG - UNION BANK DOLE PROJECT & EON PROJECT</h1>
+@endphp
+@endforeach
+<h1>{{$products->project_name}}</h1>
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="padding-left: 70px">
     <li class="nav-item" role="presentation">
@@ -47,19 +57,51 @@
         <tbody>
 
         @foreach ($data as $datas)
+        @php
+        $employee = Employee::where('id', $datas->employee_id)->get();
+    @endphp
+    @foreach ($employee as $employee)
+        
+  
+        <td class="DATA">{{ $employee->name }}</td>
 
-        <tr>
-            <td class="DATA">{{ $datas->name }}</td>
-            <td class="DATA">{{ $datas->employee_number }}</td>
-            <td class="DATA">{{ $datas->hire_date }}</td>
-            <td class="DATA">{{ $datas->contact_number }}</td>
-            <td class="DATA">{{ $datas->birthdate}}</td>
-            <td class="DATA">{{ $datas->project_name }}</td>
-            <td class="DATA">{{ $datas->designation }}</td>
-            <td class="DATA">{{ $datas->tenure }}</td>
-            <td class="DATA">{{ $datas->total_it_exp }}</td>
-            <td class="DATA">{{ $datas->status}}</td>
+        <td class="DATA">{{ $employee->employee_number }}</td>
+
+        <td class="DATA">{{ $employee->hire_date }}</td>
+
+        <td class="DATA">{{ $employee->contact_number }}</td>
+
+        <td class="DATA">{{ $employee->birthdate }}</td>
+
+        @php
+        $products = allProjects::where('id', $datas->project_id)->get();
+    @endphp
+          @foreach ($products as $item)
+          <td class="DATA">{{ $item->project_name }}</td>
+
+          @endforeach
+         
+          @php
+          $roles = Roles::where('id', $employee->role_id)->get();
+          
+      @endphp
+            @foreach ($roles as $roles)
+     
+            <td class="DATA">{{ $roles->role_name }}</td>
+  
+            @endforeach
+           <td class="DATA">{{ $employee->tenure }}</td>
+
+        <td class="DATA">{{ $employee->total_it_exp }}</td>
+        <td class="DATA">{{ $employee->status }}</td>
+
+    
+    
            
+        <tr>
+          @endforeach
+
+          
             @if( session('type') == "admin" )
 
             <td>

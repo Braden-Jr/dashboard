@@ -1,6 +1,5 @@
 @extends('form2')
 @section('contents')
-<h2>@extends('form')
 @section('contents')
 
 <style>
@@ -36,7 +35,13 @@
             <th>Tenure</th>
             <th>Total IT Exp</th>
             <th>Status</th>
+
+
+            @if(Auth::check())
+            @if( session('type') == "admin" )
             <th>Action</th>
+            @endif
+            
         </tr>
         </thead>
         <tbody>
@@ -55,6 +60,7 @@
             <td class="DATA">{{ $datas->total_it_exp }}</td>
             <td class="DATA">{{ $datas->status}}</td>
            
+            @if( session('type') == "admin" )
 
             <td>
                 <a href="#editEmployee{{ $datas->id }}" class="btn btn-success" data-bs-toggle="modal"><i class="fa fa-edit">
@@ -64,8 +70,12 @@
                 @include('employee_modal')
                
             </td>
+
+            @endif
+           
         </tr>
-        @endforeach 
+        @endforeach
+        @endif 
         <tbody>
     </table>
     <div class="row" style="padding-left:20px;border-radius:20px;display:flex;justify-content:center;margin-top:50px;">{{ $data->links() }}</div>       
@@ -92,7 +102,7 @@
       ">
     <div class="card-body p-5 shadow-5 text-center" id="addcampaign">
   
-      <form method="POST" action="/ITG-EDO SIMP">
+      <form method="POST" action="/ITG%20-%20ALPHAMAX">
       @csrf
       <!-- 2 column grid layout with text inputs for the first and last names -->
       <div class="row">

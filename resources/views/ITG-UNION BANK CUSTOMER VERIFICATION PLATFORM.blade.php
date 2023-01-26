@@ -1,6 +1,5 @@
 @extends('form2')
 @section('contents')
-<h2>@extends('form')
 @section('contents')
 
 <style>
@@ -9,7 +8,7 @@
     }
 </style>
 
-<h1>ITG - UNION BANK CUSTOMER VERIFICATION</h1>
+<h1>ITG - UNION BANK CUSTOMER VERIFICATION PLATFORM</h1>
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="padding-left: 70px">
     <li class="nav-item" role="presentation">
@@ -36,7 +35,13 @@
             <th>Tenure</th>
             <th>Total IT Exp</th>
             <th>Status</th>
+
+
+            @if(Auth::check())
+            @if( session('type') == "admin" )
             <th>Action</th>
+            @endif
+            
         </tr>
         </thead>
         <tbody>
@@ -55,6 +60,7 @@
             <td class="DATA">{{ $datas->total_it_exp }}</td>
             <td class="DATA">{{ $datas->status}}</td>
            
+            @if( session('type') == "admin" )
 
             <td>
                 <a href="#editEmployee{{ $datas->id }}" class="btn btn-success" data-bs-toggle="modal"><i class="fa fa-edit">
@@ -64,8 +70,12 @@
                 @include('employee_modal')
                
             </td>
+
+            @endif
+           
         </tr>
-        @endforeach 
+        @endforeach
+        @endif 
         <tbody>
     </table>
     <div class="row" style="padding-left:20px;border-radius:20px;display:flex;justify-content:center;margin-top:50px;">{{ $data->links() }}</div>       

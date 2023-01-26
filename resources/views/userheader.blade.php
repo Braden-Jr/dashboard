@@ -47,7 +47,6 @@
           
           <div class="sidebar-menu">
               <ul>
-         
                 <li>
                     <a href="userprofile">
                         <span class="fa-solid fa-user" style="font-size: 15px;"></span>
@@ -66,8 +65,44 @@
                           <span>COCA</span>
                       </a>
                   </li>
+                @if(Auth::check())
+                              @if( session('type') == "admin" )
+                              <li>
+                                <a href="overtime">
+                                    
+                                    <i class="ti-clipboard"></i>
+                                    <span>Overtime</span>
+                                </a>
+                            </li>
+                            <li>
+                              <a href="adminaccounts">
+                                  <span class="ti-id-badge" style="font-size: 15px;"></span>
+                                  <span>Admin Accounts</span>
+                              </a>
+          
+                          </li>
+                          <li>
+                              <a href="useraccounts">
+                                  <span class="ti-id-badge" style="font-size: 15px;"></span>
+                                  <span>User Accounts</span>
+                              </a>
+          
+                          </li>
+          
+                          <li>
+                              <a href="/faq">
+                              
+                                  <i class="far fa-question-circle" style="font-size: 15px;"></i>
+                                  <span>F.A.Q</span>
+                              </a>
+          
+                          </li>
+                              @endif
+                              @endif
+               
+                 
                   <li>
-                      <a href="../adminlogout">
+                      <a href="/adminLogout">
                           <i class="fa-solid fa-right-from-bracket" style="font-size: 15px;"></i>
                           <span>Log Out</span>
                       </a>

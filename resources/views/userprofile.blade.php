@@ -37,8 +37,8 @@
                         ">
                       <div class="card-body p-5 shadow-5 text-center" style="background-color: #171742">
                     
-                        <form method="POST" action="/adminsignup">
-                        @csrf
+                        <form>
+                     
                         <!-- 2 column grid layout with text inputs for the first and last names -->
                         <div class="row">
                           <div class="col-md-12 mb-4">
@@ -49,7 +49,7 @@
                           </div>
                           <div class="col-md-12 mb-4">
                             <div class="form-outline">
-                              <input type="text" name='fname'id="form3Example1" value="{{ session('employee') }}" class="form-control" style="border: 2px solid #90ccbc;font-size:20px;text-align:center;" disabled/>
+                              <input type="text" name='fname'id="form3Example1" value="{{ session('employee_number') }}" class="form-control" style="border: 2px solid #90ccbc;font-size:20px;text-align:center;" disabled/>
                               <label style="margin-top:15px;" class="form-label" id="profilelabel" for="form3Example1">Email</label>
                             </div>
                             </div>
@@ -59,7 +59,7 @@
                   
                             <div class="col-md-12 mb-4">
                                 <div class="form-outline">
-                                  <input type="text" name='fname'id="form3Example1" value="{{ session('types') }}"  class="form-control" style="border: 2px solid #90ccbc;font-size:20px;text-align:center;" disabled/>
+                                  <input type="text" name='fname'id="form3Example1" value="{{ session('type') }}"  class="form-control" style="border: 2px solid #90ccbc;font-size:20px;text-align:center;" disabled/>
                                   <label style="margin-top:15px;" class="form-label" id="profilelabel" for="form3Example1">Type</label>
                                 </div>
                                 </div>
@@ -67,13 +67,19 @@
                         <a href="#changePass" class="btn btn-success" id="changepassbtn" data-bs-toggle="modal"><i class="fa-solid fa-trash"></i>
                           Change Password</a>
                           
-                     
+                          @if (session('status'))
+                          <div class="alert alert-success">
+                              {{ session('status') }}
+                          </div>
+                      @endif
                       </div>
+                    </form>
                       </div>
                     </div>
                     </div>
                   </div>
                   @include('changemodal')
+                 
     </main>
     
 </div>

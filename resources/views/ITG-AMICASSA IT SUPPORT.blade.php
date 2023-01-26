@@ -1,6 +1,5 @@
-@extends('form')
+@extends('form2')
 @section('contents')
-<h2>@extends('form')
 @section('contents')
 
 <style>
@@ -9,7 +8,7 @@
     }
 </style>
 
-<h1>ITG - AMICASSA IT Support</h1>
+<h1>ITG - AMICASSA IT SUPPORT</h1>
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="padding-left: 70px">
     <li class="nav-item" role="presentation">
@@ -36,7 +35,13 @@
             <th>Tenure</th>
             <th>Total IT Exp</th>
             <th>Status</th>
+
+
+            @if(Auth::check())
+            @if( session('type') == "admin" )
             <th>Action</th>
+            @endif
+            
         </tr>
         </thead>
         <tbody>
@@ -51,10 +56,11 @@
             <td class="DATA">{{ $datas->birthdate}}</td>
             <td class="DATA">{{ $datas->project_name }}</td>
             <td class="DATA">{{ $datas->designation }}</td>
-            <td class="DATA">{{ $datas->project_name }}</td>
             <td class="DATA">{{ $datas->tenure }}</td>
+            <td class="DATA">{{ $datas->total_it_exp }}</td>
             <td class="DATA">{{ $datas->status}}</td>
            
+            @if( session('type') == "admin" )
 
             <td>
                 <a href="#editEmployee{{ $datas->id }}" class="btn btn-success" data-bs-toggle="modal"><i class="fa fa-edit">
@@ -64,8 +70,12 @@
                 @include('employee_modal')
                
             </td>
+
+            @endif
+           
         </tr>
-        @endforeach 
+        @endforeach
+        @endif 
         <tbody>
     </table>
     <div class="row" style="padding-left:20px;border-radius:20px;display:flex;justify-content:center;margin-top:50px;">{{ $data->links() }}</div>       
@@ -92,65 +102,65 @@
       ">
     <div class="card-body p-5 shadow-5 text-center" id="addcampaign">
   
-      <form method="POST" action="/ITG-AMICASSAITSUPPORT">
+      <form method="POST" action="/ITG%20-%20ALPHAMAX">
       @csrf
       <!-- 2 column grid layout with text inputs for the first and last names -->
       <div class="row">
         <div class="col-md-12">
       <div class="form-outline mb-4">
-        <input type="text" name='personnel' id="form3Example1" class="form-control" />
+        <input type="text" name='name' id="form3Example1" class="form-control" />
         <label class="form-label" for="form3Example1">Name</label>
         </div>
 
         <div class="row">
             <div class="col-md-12">
             <div class="form-outline mb-4">
-              <input type="text" name='campaign'id="form3Example2" class="form-control" />
+              <input type="text" name='employeenumber'id="form3Example2" class="form-control" />
               <label class="form-label" for="form3Example2">Employee No.</label>
             </div>
             </div>
             <div class="col-md-12">
             <div class="form-outline mb-4">
-              <input type="text" name='leader' id="form3Example3" class="form-control" />
+              <input type="text" name='hiredate' id="form3Example3" class="form-control" />
               <label class="form-label" for="form3Example3">Hire Date</label>
             </div>
             </div>
           </div>
           <div class="form-outline mb-4">
-            <input type="text" name='contact number' id="form3Example4" class="form-control" />
+            <input type="text" name='contactnumber' id="form3Example4" class="form-control" />
             <label class="form-label" for="form3Example4">Contact Number</label>
           </div>
           <div class="form-outline mb-4">
-            <input type="text" name='birthday' id="form3Example5" class="form-control" />
+            <input type="text" name='birthdate' id="form3Example5" class="form-control" />
             <label class="form-label" for="form3Example5">Birthdate</label>
           </div>
    
           <div class="form-outline mb-4">
-            <input type="text" name='positions' id="form3Example6" class="form-control" />
+            <input type="text" name='project' id="form3Example6" class="form-control" />
             <label class="form-label" for="form3Example6">Project Name</label>
           </div>
     
           <div class="form-outline mb-4">
-            <input type="text" name='personnel' id="form3Example7" class="form-control" />
+            <input type="text" name='designation' id="form3Example7" class="form-control" />
             <label class="form-label" for="form3Example7">Designation</label>
             </div>
             <div class="row">
                 <div class="col-md-12">
                 <div class="form-outline mb-4">
-                  <input type="text" name='campaign'id="form3Example8" class="form-control" />
+                  <input type="text" name='tenure'id="form3Example8" class="form-control" />
                   <label class="form-label" for="form3Example8">Tenure</label>
                 </div>
                 </div>
                 <div class="col-md-12">
                 <div class="form-outline mb-4">
-                  <input type="text" name='leader' id="form3Example9" class="form-control" />
+                  <input type="text" name='totalit' id="form3Example9" class="form-control" />
                   <label class="form-label" for="form3Example9">Total IT Exp</label>
                 </div>
                 </div>
               </div>
         
               <div class="form-outline mb-4">
-                <input type="text" name='positions' id="form3Example10" class="form-control" />
+                <input type="text" name='status' id="form3Example10" class="form-control" />
                 <label class="form-label" for="form3Example10">Status</label>
               </div>
              

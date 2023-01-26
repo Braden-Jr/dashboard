@@ -31,7 +31,6 @@ class allprojects extends Model
         $campaign->contact_number=$contact_number;
         $campaign->birthdate=$birthdate;
         $campaign->project_name=$project_name;
-        $campaign->designation=$designation;
         $campaign->tenure=$tenure;
         $campaign->total_it_exp=$total_it_exp;
         $campaign->status=$status;
@@ -39,6 +38,7 @@ class allprojects extends Model
     
         return $campaign;
     }
+
 
 
 }
